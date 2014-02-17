@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Sun Feb 16 20:49:10 PST 2014
+ScienceTools-scons/celestialSources/eblAtten
+
+Modified Files:
+	SConscript 
+Log Message:
+adding ebl model by Inoue et al (2013) using the ascii table feature
+    *
+------------------------------------------------------------
 TAG
 Tag name: GlastRelease-20-09-06, operation: add
 Package: eblAtten
