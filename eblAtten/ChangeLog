@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Mon Feb 17 13:32:26 PST 2014
+ScienceTools-scons/celestialSources/eblAtten/data
+
+Added Files:
+	opdep_DOMINGUEZetal_2011.dat readme_DOMINGUEZetal_2011.dat 
+Log Message:
+adding Dominguez et al 2011 model
+    *
+------------------------------------------------------------
 User: lreyes  Mon Feb 17 13:32:25 PST 2014
 ScienceTools-scons/celestialSources/eblAtten
 
