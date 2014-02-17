@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Sun Feb 16 20:49:47 PST 2014
+ScienceTools-scons/celestialSources/eblAtten/src
+
+Modified Files:
+	EblAtten.cxx IRB_routines.cxx 
+Log Message:
+adding ebl model by Inoue et al (2013) using the ascii table feature
+    *
+------------------------------------------------------------
 User: lreyes  Sun Feb 16 20:49:46 PST 2014
 ScienceTools-scons/celestialSources/eblAtten/eblAtten
 
