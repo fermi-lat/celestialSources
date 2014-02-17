@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Mon Feb 17 13:32:25 PST 2014
+ScienceTools-scons/celestialSources/eblAtten
+
+Modified Files:
+	SConscript 
+Log Message:
+adding Dominguez et al 2011 model
+    *
+------------------------------------------------------------
 User: lreyes  Sun Feb 16 20:49:47 PST 2014
 ScienceTools-scons/celestialSources/eblAtten/src/test
 
