@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Sun Feb 16 20:49:45 PST 2014
+ScienceTools-scons/celestialSources/eblAtten/data
+
+Added Files:
+	opdep_INOUEetal_2013.dat readme_INOUEetal_2013.dat 
+Log Message:
+adding ebl model by Inoue et al (2013) using the ascii table feature
+    *
+------------------------------------------------------------
 User: lreyes  Sun Feb 16 20:49:10 PST 2014
 ScienceTools-scons/celestialSources/eblAtten
 
