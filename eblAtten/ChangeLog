@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Tue Feb 18 00:12:19 PST 2014
+ScienceTools-scons/celestialSources/eblAtten
+
+Modified Files:
+	SConscript 
+Log Message:
+adding ebl models of Scully, Malkan & Stecker (2014) and Kneiske&Dole (2010)
+    *
+------------------------------------------------------------
 User: lreyes  Mon Feb 17 13:32:26 PST 2014
 ScienceTools-scons/celestialSources/eblAtten/src/test
 
