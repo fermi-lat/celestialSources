@@ -1,4 +1,15 @@
 ------------------------------------------------------------
+User: lreyes  Tue Feb 18 00:12:21 PST 2014
+ScienceTools-scons/celestialSources/eblAtten/data
+
+Added Files:
+	opdep_KNEISKEandDOLE_2010.dat opdep_SCULLYetal2014_highOp.dat 
+	opdep_SCULLYetal2014_lowOp.dat readme_KNEISKEandDOLE_2010.dat 
+	readme_SCULLYetal2014.dat 
+Log Message:
+adding ebl models of Scully, Malkan & Stecker (2014) and Kneiske&Dole (2010)
+    *
+------------------------------------------------------------
 User: lreyes  Tue Feb 18 00:12:19 PST 2014
 ScienceTools-scons/celestialSources/eblAtten
 
