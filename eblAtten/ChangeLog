@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Tue Feb 18 18:22:56 PST 2014
+ScienceTools-scons/celestialSources/eblAtten
+
+Modified Files:
+	SConscript 
+Log Message:
+adding Kneiske and Dole (2010) with CMB
+    *
+------------------------------------------------------------
 User: lreyes  Tue Feb 18 00:12:22 PST 2014
 ScienceTools-scons/celestialSources/eblAtten/src/test
 
