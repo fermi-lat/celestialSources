@@ -1,5 +1,17 @@
 ------------------------------------------------------------
 TAG
+Tag name: GlastRelease-20-09-07, operation: add
+Package: celestialSources
+User: heather  Thu Feb 20 00:25:31 2014
+Files:
+  celestialSources/.cvsignore  1.2
+  celestialSources/ChangeLog  1.549
+  celestialSources/SConscript  1.16
+  celestialSources/celestialSourcesLib.py  1.4
+
+    *
+------------------------------------------------------------
+TAG
 Tag name: GlastRelease-20-09-06, operation: add
 Package: celestialSources
 User: heather  Thu Dec 19 00:10:07 2013
