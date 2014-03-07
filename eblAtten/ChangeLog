@@ -1,4 +1,15 @@
 ------------------------------------------------------------
+User: lreyes  Thu Mar  6 16:18:33 PST 2014
+ScienceTools-scons/celestialSources/eblAtten/data
+
+Modified Files:
+	opdep_DOMINGUEZetal_2011.dat 
+Added Files:
+	opdep_GILMOREetal_2009.dat readme_GILMOREetal_2009.dat 
+Log Message:
+adding Gilmore09 model and fixing typo on Dominguez ascii table
+    *
+------------------------------------------------------------
 User: lreyes  Thu Mar  6 16:18:32 PST 2014
 ScienceTools-scons/celestialSources/eblAtten
 
