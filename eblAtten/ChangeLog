@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Thu Mar  6 16:18:36 PST 2014
+ScienceTools-scons/celestialSources/eblAtten/src/test
+
+Modified Files:
+	test.cxx 
+Log Message:
+adding Gilmore09 model and fixing typo on Dominguez ascii table
+    *
+------------------------------------------------------------
 User: lreyes  Thu Mar  6 16:18:35 PST 2014
 ScienceTools-scons/celestialSources/eblAtten/src
 
