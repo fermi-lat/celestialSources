@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Sun Mar 16 22:08:16 PDT 2014
+ScienceTools-scons/celestialSources/eblAtten/data
+
+Modified Files:
+	opdep_DOMINGUEZetal_2011.dat 
+Log Message:
+fixing format of Dominguez et al table
+    *
+------------------------------------------------------------
 User: lreyes  Thu Mar  6 16:18:36 PST 2014
 ScienceTools-scons/celestialSources/eblAtten/src/test
 
