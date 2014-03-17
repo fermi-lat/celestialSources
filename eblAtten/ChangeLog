@@ -1,4 +1,12 @@
 ------------------------------------------------------------
+TAG
+Tag name: ScienceTools-09-33-00, operation: add
+Package: eblAtten
+User: jchiang  Sun Mar 16 23:50:01 2014
+Files:
+
+    *
+------------------------------------------------------------
 User: lreyes  Sun Mar 16 22:08:16 PDT 2014
 ScienceTools-scons/celestialSources/eblAtten/data
 
