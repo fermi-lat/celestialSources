@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Tue Mar 18 16:21:40 PDT 2014
+ScienceTools-scons/celestialSources/eblAtten/src/test
+
+Modified Files:
+	test.cxx 
+Log Message:
+match order of enum in test.cxx, extend energy range to 800 GeV
+    *
+------------------------------------------------------------
 TAG
 Tag name: ScienceTools-09-33-00, operation: add
 Package: eblAtten
