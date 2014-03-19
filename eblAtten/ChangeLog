@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Wed Mar 19 00:26:33 PDT 2014
+ScienceTools-scons/celestialSources/eblAtten/data
+
+Modified Files:
+	opdep_KNEISKEandDOLE_2010.dat 
+Log Message:
+fix typo in Kneiske and Dole table
+    *
+------------------------------------------------------------
 User: lreyes  Tue Mar 18 16:21:40 PDT 2014
 ScienceTools-scons/celestialSources/eblAtten/src/test
 
