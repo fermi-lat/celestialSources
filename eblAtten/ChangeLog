@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Thu Mar 20 15:55:23 PDT 2014
+ScienceTools-scons/celestialSources/eblAtten/src/test
+
+Modified Files:
+	test.cxx 
+Log Message:
+keep energy under 500 GeV until code can deal with exceptions (due to energy > emax)
+    *
+------------------------------------------------------------
 User: lreyes  Thu Mar 20 15:13:18 PDT 2014
 ScienceTools-scons/celestialSources/eblAtten/eblAtten
 
