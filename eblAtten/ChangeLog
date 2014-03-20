@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Thu Mar 20 15:12:15 PDT 2014
+ScienceTools-scons/celestialSources/eblAtten/src
+
+Modified Files:
+	EblAtten.cxx 
+Log Message:
+add Helgason et al. model
+    *
+------------------------------------------------------------
 User: lreyes  Thu Mar 20 15:11:27 PDT 2014
 ScienceTools-scons/celestialSources/eblAtten/data
 
