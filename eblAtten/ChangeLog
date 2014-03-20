@@ -1,4 +1,16 @@
 ------------------------------------------------------------
+User: lreyes  Thu Mar 20 15:11:27 PDT 2014
+ScienceTools-scons/celestialSources/eblAtten/data
+
+Added Files:
+	README_EBLmodels.txt opdep_HELGASONandKASHLINSKY_2012.dat 
+Removed Files:
+	readme_GILMOREetal_2009.dat readme_INOUEetal_2013.dat 
+	readme_KNEISKEandDOLE_2010.dat 
+Log Message:
+add Helgason model, remove un-necessary readme files
+    *
+------------------------------------------------------------
 User: lreyes  Wed Mar 19 00:26:33 PDT 2014
 ScienceTools-scons/celestialSources/eblAtten/data
 
