@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Sat Mar 22 10:13:49 PDT 2014
+ScienceTools-scons/celestialSources/eblAtten/src
+
+Modified Files:
+	AsciiTableModel.cxx 
+Log Message:
+fix bug in asciitable interpolation
+    *
+------------------------------------------------------------
 User: lreyes  Thu Mar 20 15:55:23 PDT 2014
 ScienceTools-scons/celestialSources/eblAtten/src/test
 
