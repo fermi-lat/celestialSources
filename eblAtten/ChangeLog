@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Wed Apr  2 11:35:20 PDT 2014
+ScienceTools-scons/celestialSources/eblAtten/src
+
+Modified Files:
+	IRB_routines.cxx AsciiTableModel.cxx 
+Log Message:
+Bug in old Stecker Model, special case handling in ascii table interpolation
+    *
+------------------------------------------------------------
 User: lreyes  Sat Mar 22 10:13:49 PDT 2014
 ScienceTools-scons/celestialSources/eblAtten/src
 
