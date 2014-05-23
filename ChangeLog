@@ -2,6 +2,19 @@
 TAG
 Tag name: ScienceTools-09-33-03, operation: add
 Package: celestialSources
+User: jchiang  Fri May 23 13:05:11 2014
+Files:
+  celestialSources/celestialSources/SpectrumFactoryLoader.h  1.2
+  celestialSources/celestialSources/TRandom4.h  1.2
+  celestialSources/celestialSources/ConstParMap.h  1.1
+  celestialSources/cmt/requirements  1.51
+  celestialSources/doc/release.notes  1.38
+
+    *
+------------------------------------------------------------
+TAG
+Tag name: ScienceTools-09-33-03, operation: add
+Package: celestialSources
 User: jchiang  Fri May 23 13:04:46 2014
 Files:
   celestialSources/.cvsignore  1.2
