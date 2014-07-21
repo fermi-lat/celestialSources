@@ -2,6 +2,31 @@
 TAG
 Tag name: ScienceTools-09-34-01, operation: add
 Package: eblAtten
+User: glastrm  Sun Jul 20 22:25:54 2014
+Files:
+  eblAtten/.cvsignore  1.2
+  eblAtten/ChangeLog  1.583
+  eblAtten/SConscript  1.15
+  eblAtten/eblAttenLib.py  1.4
+  eblAtten/cmt/requirements  1.22
+  eblAtten/data/opdep_fiducial_Gilmore2012.dat  1.1
+  eblAtten/data/opdep_fixed_Gilmore2012.dat  1.1
+  eblAtten/data/readme_Gilmore2012.txt  1.1
+  eblAtten/doc/release.notes  1.18
+  eblAtten/eblAtten/EblAtten.h  1.10
+  eblAtten/src/Primack05.cxx  1.3
+  eblAtten/src/EblAtten.cxx  1.9
+  eblAtten/src/AsciiTableModel.cxx  1.2
+  eblAtten/src/IRB_routines.cxx  1.13
+  eblAtten/src/Primack05.h  1.2
+  eblAtten/src/AsciiTableModel.h  1.1
+  eblAtten/src/test/test.cxx  1.10
+
+    *
+------------------------------------------------------------
+TAG
+Tag name: ScienceTools-09-34-01, operation: add
+Package: eblAtten
 User: glastrm  Sun Jul 20 22:25:09 2014
 Files:
 
