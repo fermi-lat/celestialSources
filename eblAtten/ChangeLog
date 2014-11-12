@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: asercion  Wed Nov 12 10:05:46 PST 2014
+celestialSources/eblAtten/src
+
+Modified Files:
+	AsciiTableModel.cxx 
+Log Message:
+Mavericks compatibility update
+    *
+------------------------------------------------------------
 TAG
 Tag name: ScienceTools-09-34-03, operation: add
 Package: eblAtten
