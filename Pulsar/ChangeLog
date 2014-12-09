@@ -1,5 +1,13 @@
 ------------------------------------------------------------
 TAG
+Tag name: GlastRelease-17-35-24-lr01, operation: add
+Package: Pulsar
+User: heather  Tue Dec  9 01:07:26 2014
+Files:
+
+    *
+------------------------------------------------------------
+TAG
 Tag name: ScienceTools-09-34-03, operation: add
 Package: Pulsar
 User: glastrm  Mon Sep 29 21:11:39 2014
