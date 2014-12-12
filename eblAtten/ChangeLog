@@ -2,6 +2,26 @@
 TAG
 Tag name: GlastRelease-20-10-00, operation: add
 Package: eblAtten
+User: heather  Fri Dec 12 11:19:54 2014
+Files:
+  eblAtten/.cvsignore  1.2
+  eblAtten/ChangeLog  1.414
+  eblAtten/SConscript  1.12
+  eblAtten/eblAttenLib.py  1.3
+  eblAtten/cmt/requirements  1.20
+  eblAtten/doc/release.notes  1.16
+  eblAtten/eblAtten/EblAtten.h  1.9
+  eblAtten/src/Primack05.cxx  1.3
+  eblAtten/src/EblAtten.cxx  1.8
+  eblAtten/src/IRB_routines.cxx  1.12
+  eblAtten/src/Primack05.h  1.2
+  eblAtten/src/test/test.cxx  1.8
+
+    *
+------------------------------------------------------------
+TAG
+Tag name: GlastRelease-20-10-00, operation: add
+Package: eblAtten
 User: heather  Fri Dec 12 11:18:58 2014
 Files:
 
