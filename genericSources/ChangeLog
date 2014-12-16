@@ -1,5 +1,13 @@
 ------------------------------------------------------------
 TAG
+Tag name: GlastRelease-17-35-24-lr02, operation: add
+Package: genericSources
+User: heather  Tue Dec 16 07:58:59 2014
+Files:
+
+    *
+------------------------------------------------------------
+TAG
 Tag name: GlastRelease-20-10-00, operation: add
 Package: genericSources
 User: heather  Fri Dec 12 11:19:11 2014
