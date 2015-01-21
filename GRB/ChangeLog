@@ -2,6 +2,69 @@
 TAG
 Tag name: GlastRelease-17-35-24-lr03, operation: add
 Package: GRB
+User: heather  Wed Jan 21 10:00:56 2015
+Files:
+  GRB/.cvsignore  1.4
+  GRB/ChangeLog  1.909
+  GRB/GRBLib.py  1.4
+  GRB/SConscript  1.15
+  GRB/cmt/.cvsignore  1.1
+  GRB/cmt/requirements  1.67
+  GRB/data/GRBParam.txt  1.1
+  GRB/doc/release.notes  1.30
+  GRB/doc/Doxyfile  1.8
+  GRB/src/mainpage.h  1.11
+  GRB/src/GRB/GRBengine.h  1.13
+  GRB/src/GRB/GRBShock.h  1.25
+  GRB/src/GRB/GRBmanager.h  1.25
+  GRB/src/GRB/GRBengine.cxx  1.28
+  GRB/src/GRB/GRBmanager.cxx  1.39
+  GRB/src/GRB/GRBShell.h  1.20
+  GRB/src/GRB/GRBShock.cxx  1.36
+  GRB/src/GRB/GRBShell.cxx  1.21
+  GRB/src/GRB/GRBSim.h  1.27
+  GRB/src/GRB/GRBConstants.h  1.46
+  GRB/src/GRB/GRBSim.cxx  1.54
+  GRB/src/GRB/GRBConstants.cxx  1.49
+  GRB/src/GRBmaker/GRBpulse.h  1.5
+  GRB/src/GRBmaker/GrbGlobalData.h  1.4
+  GRB/src/GRBmaker/GRBsimvecCreator.h  1.3
+  GRB/src/GRBmaker/GRBmaker.cxx  1.14
+  GRB/src/GRBmaker/LatGrb.h  1.5
+  GRB/src/GRBmaker/GRBobsSpectrum.cxx  1.24
+  GRB/src/GRBmaker/GRBobsUtilities.h  1.8
+  GRB/src/GRBmaker/GRBpulse.cxx  1.9
+  GRB/src/GRBmaker/GRBobsUtilities.cxx  1.8
+  GRB/src/GRBmaker/GrbGlobalData.cxx  1.6
+  GRB/src/GRBmaker/GbmGrb.h  1.5
+  GRB/src/GRBmaker/GRBurst.cxx  1.8
+  GRB/src/GRBmaker/GRBobsConstants.h  1.6
+  GRB/src/GRBmaker/GRBsimvecCreator.cxx  1.4
+  GRB/src/GRBmaker/GRBmaker.h  1.9
+  GRB/src/GRBmaker/LatGrb.cxx  1.6
+  GRB/src/GRBmaker/GRBurst.h  1.4
+  GRB/src/GRBmaker/GRBobsSpectrum.h  1.10
+  GRB/src/GRBmaker/GbmGrb.cxx  1.5
+  GRB/src/LatGRBAlert/ClusterData.h  1.3
+  GRB/src/LatGRBAlert/LatGRBAlert.h  1.2
+  GRB/src/LatGRBAlert/LatGRBAlertConstants.h  1.3
+  GRB/src/LatGRBAlert/BackgroundMixer.h  1.3
+  GRB/src/LatGRBAlert/BackgroundMixer.cxx  1.4
+  GRB/src/LatGRBAlert/PhotonInfo.h  1.3
+  GRB/src/LatGRBAlert/ClusterData.cxx  1.6
+  GRB/src/LatGRBAlert/ClusterInfo.h  1.2
+  GRB/src/LatGRBAlert/LatGRBAlert.cxx  1.2
+  GRB/src/test/testGRB.cxx  1.2
+  GRB/src/test/GRBParam.txt  1.45
+  GRB/src/test/other/compile.C  1.1
+  GRB/src/test/other/GRBROOTtest.cxx  1.47
+  GRB/xml/GRB_user_library.xml  1.31
+
+    *
+------------------------------------------------------------
+TAG
+Tag name: GlastRelease-17-35-24-lr03, operation: add
+Package: GRB
 User: heather  Wed Jan 21 10:00:15 2015
 Files:
 
