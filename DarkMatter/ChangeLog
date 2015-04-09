@@ -2,6 +2,23 @@
 TAG
 Tag name: GlastRelease-20-10-02, operation: add
 Package: DarkMatter
+User: heather  Thu Apr  9 13:17:24 2015
+Files:
+  DarkMatter/sources/Profiles/1e10-85kpc_map.fits  1.1
+  DarkMatter/src/makeMap.cxx  1.2
+  DarkMatter/src/mainpage.h  1.1.1.1
+  DarkMatter/src/LineOfSight.h  1.2
+  DarkMatter/src/LineOfSight.cxx  1.2
+  DarkMatter/src/globals.h  1.1
+  DarkMatter/src/Profile.cxx  1.1
+  DarkMatter/src/haloProfile.cxx  1.1
+  DarkMatter/xml/darkmatter_library.xml  1.1
+
+    *
+------------------------------------------------------------
+TAG
+Tag name: GlastRelease-20-10-02, operation: add
+Package: DarkMatter
 User: heather  Thu Apr  9 13:17:09 2015
 Files:
   DarkMatter/.cvsignore  1.1.1.1
