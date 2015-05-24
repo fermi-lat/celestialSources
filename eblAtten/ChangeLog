@@ -1,4 +1,15 @@
 ------------------------------------------------------------
+User: lreyes  Sun May 24 13:49:29 PDT 2015
+ScienceTools-scons/celestialSources/eblAtten/data
+
+Added Files:
+	opdep_Finke_2009.dat opdep_Franceschini_2008.dat 
+	opdep_KNEISKEetal2004_bestfit.dat 
+	opdep_KNEISKEetal2004_highUV.dat opdep_SalamonStecker98.dat 
+Log Message:
+converting old models to use new AsciiTable tool
+    *
+------------------------------------------------------------
 User: lreyes  Sun May 24 13:47:56 PDT 2015
 ScienceTools-scons/celestialSources/eblAtten/src/test
 
