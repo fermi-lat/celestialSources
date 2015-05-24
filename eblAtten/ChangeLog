@@ -1,5 +1,14 @@
 ------------------------------------------------------------
 User: lreyes  Sun May 24 13:47:55 PDT 2015
+ScienceTools-scons/celestialSources/eblAtten/src
+
+Modified Files:
+	AsciiTableModel.cxx IRB_routines.cxx 
+Log Message:
+converting old models to use new AsciiTable tool
+    *
+------------------------------------------------------------
+User: lreyes  Sun May 24 13:47:55 PDT 2015
 ScienceTools-scons/celestialSources/eblAtten
 
 Modified Files:
