@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: lreyes  Sun May 24 13:47:56 PDT 2015
+ScienceTools-scons/celestialSources/eblAtten/src/test
+
+Modified Files:
+	test.cxx 
+Log Message:
+converting old models to use new AsciiTable tool
+    *
+------------------------------------------------------------
 User: lreyes  Sun May 24 13:47:55 PDT 2015
 ScienceTools-scons/celestialSources/eblAtten/src
 
