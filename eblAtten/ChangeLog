@@ -1,4 +1,12 @@
 ------------------------------------------------------------
+TAG
+Tag name: GlastRelease-20-10-03, operation: add
+Package: eblAtten
+User: heather  Wed Jun 17 14:35:51 2015
+Files:
+
+    *
+------------------------------------------------------------
 User: lreyes  Sun May 24 13:49:29 PDT 2015
 ScienceTools-scons/celestialSources/eblAtten/data
 
