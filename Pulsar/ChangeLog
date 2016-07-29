@@ -2,6 +2,47 @@
 TAG
 Tag name: ScienceTools-11-03-00, operation: add
 Package: Pulsar
+User: glastrm  Fri Jul 29 16:23:06 2016
+Files:
+  Pulsar/.cvsignore  1.3
+  Pulsar/ChangeLog  1.943
+  Pulsar/PulsarLib.py  1.3
+  Pulsar/SConscript  1.18
+  Pulsar/Pulsar/PulsarConstants.h  1.36
+  Pulsar/Pulsar/PulsarSpectrum.h  1.62
+  Pulsar/Pulsar/PulsarSim.h  1.20
+  Pulsar/cmt/requirements  1.24
+  Pulsar/data/TestPulsarDataList.txt  1.1
+  Pulsar/data/PSRB1706m44TimeProfile.txt  1.1
+  Pulsar/data/BasicDataList.txt  1.20
+  Pulsar/data/PSRCRABTimeProfile.txt  1.1
+  Pulsar/data/PSRMUROBTimeProfile.txt  1.1
+  Pulsar/data/PulsarDataList.txt  1.35
+  Pulsar/data/PSRMURON1TimeProfile.txt  1.1
+  Pulsar/data/PSRGEMINGATimeProfile.txt  1.1
+  Pulsar/data/BasicBinDataList.txt  1.5
+  Pulsar/data/PSRMUROSTimeProfile.txt  1.1
+  Pulsar/data/PSRVELATimeProfile.txt  1.2
+  Pulsar/data/PSRMUROMTimeProfile.txt  1.1
+  Pulsar/data/PulsarBinDataList.txt  1.1
+  Pulsar/data/PSRB1055m52TimeProfile.txt  1.1
+  Pulsar/data/PsrPCHShape.root  1.2
+  Pulsar/data/PSRMURON2TimeProfile.txt  1.1
+  Pulsar/doc/release.notes  1.64
+  Pulsar/doc/NJSnForm.jpg  1.1
+  Pulsar/doc/DoxyFile  1.5
+  Pulsar/src/mainpage.h  1.5
+  Pulsar/src/PulsarSim.cxx  1.45
+  Pulsar/src/PulsarSpectrum.cxx  1.148
+  Pulsar/src/test/other/PulsarROOTtest.cxx  1.39
+  Pulsar/xml/Pulsar_test_library.xml  1.4
+  Pulsar/xml/Pulsar_user_library.xml  1.25
+
+    *
+------------------------------------------------------------
+TAG
+Tag name: ScienceTools-11-03-00, operation: add
+Package: Pulsar
 User: glastrm  Fri Jul 29 16:22:47 2016
 Files:
 
