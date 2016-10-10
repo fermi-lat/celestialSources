@@ -1,5 +1,17 @@
 ------------------------------------------------------------
 TAG
+Tag name: ScienceTools-11-04-00, operation: add
+Package: celestialSources
+User: jchiang  Mon Oct 10 12:39:30 2016
+Files:
+  celestialSources/.cvsignore  1.2
+  celestialSources/ChangeLog  1.549
+  celestialSources/SConscript  1.16
+  celestialSources/celestialSourcesLib.py  1.4
+
+    *
+------------------------------------------------------------
+TAG
 Tag name: ScienceTools-11-03-00, operation: add
 Package: celestialSources
 User: glastrm  Fri Jul 29 16:22:53 2016
