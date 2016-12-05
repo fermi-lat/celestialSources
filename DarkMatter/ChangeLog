@@ -1,5 +1,39 @@
 ------------------------------------------------------------
 TAG
+Tag name: GlastRelease-20-10-04-gr02, operation: add
+Package: DarkMatter
+User: heather  Mon Dec  5 11:34:57 2016
+Files:
+  DarkMatter/.cvsignore  1.1.1.1
+  DarkMatter/release.notes  1.1.1.1
+  DarkMatter/ChangeLog  1.158
+  DarkMatter/DarkMatter/Profile.h  1.1
+  DarkMatter/cmt/.cvsignore  1.1
+  DarkMatter/cmt/requirements  1.3
+  DarkMatter/sources/DS_DC2/rndm00000180.dat  1.1
+  DarkMatter/sources/DS_DC2/rndm00000120.dat  1.1
+  DarkMatter/sources/DS_DC2/param.dat  1.1
+  DarkMatter/sources/DS_DC2/rndm00000060.dat  1.1
+  DarkMatter/sources/DS_DC2/rndm00000160.dat  1.1
+  DarkMatter/sources/DS_DC2/res10MeVBisBis.txt  1.1
+  DarkMatter/sources/DS_DC2/res100MeVBisBis.txt  1.1
+  DarkMatter/sources/DS_DC2/rndm00000080.dat  1.1
+  DarkMatter/sources/DS_DC2/rndm00000140.dat  1.1
+  DarkMatter/sources/DS_DC2/liste.dat  1.1
+  DarkMatter/sources/DS_DC2/rndm00000100.dat  1.1
+  DarkMatter/sources/Profiles/1e10-85kpc_map.fits  1.1
+  DarkMatter/src/makeMap.cxx  1.2
+  DarkMatter/src/mainpage.h  1.1.1.1
+  DarkMatter/src/LineOfSight.h  1.2
+  DarkMatter/src/LineOfSight.cxx  1.2
+  DarkMatter/src/globals.h  1.1
+  DarkMatter/src/Profile.cxx  1.1
+  DarkMatter/src/haloProfile.cxx  1.1
+  DarkMatter/xml/darkmatter_library.xml  1.1
+
+    *
+------------------------------------------------------------
+TAG
 Tag name: GlastRelease-20-10-04-br02, operation: add
 Package: DarkMatter
 User: heather  Mon Dec  5 11:25:17 2016
