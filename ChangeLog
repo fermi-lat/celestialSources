@@ -2,6 +2,18 @@
 TAG
 Tag name: GlastRelease-20-10-04-br01, operation: add
 Package: celestialSources
+User: heather  Mon Dec  5 08:23:45 2016
+Files:
+  celestialSources/.cvsignore  1.2
+  celestialSources/ChangeLog  1.549
+  celestialSources/SConscript  1.16
+  celestialSources/celestialSourcesLib.py  1.4
+
+    *
+------------------------------------------------------------
+TAG
+Tag name: GlastRelease-20-10-04-br01, operation: add
+Package: celestialSources
 User: heather  Mon Dec  5 08:07:15 2016
 Files:
   celestialSources/celestialSources/SpectrumFactoryLoader.h  1.2
