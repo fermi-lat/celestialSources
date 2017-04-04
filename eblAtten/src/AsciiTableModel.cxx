@@ -9,6 +9,7 @@
  * $Header$
  */
 
+#include <cstdlib>
 #include <cmath>
 #include <cstdlib>
 #include <algorithm>
