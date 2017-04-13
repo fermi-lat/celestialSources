@@ -3,7 +3,7 @@
   $Id$
        
 @verbatim
- * Coordinators: K. Bechtol
+ * Coordinators: Warit Mitthumsiri, K. Bechtol, Luigi Tibaldo
     EOH
 
  EarthPhenom-00-02-07 12-Feb-2014 bechtol Implementing revised zenith profile parametrization from Luigi (Feb 2014)

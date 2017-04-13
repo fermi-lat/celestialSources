@@ -1,6 +1,7 @@
 # -*- python -*-
 # $Id$
-# Authors: Keith Bechtol<bechtol@stanford.edu>
+# Authors: Keith Bechtol<bechtol@stanford.edu>, Luigi Tibaldo
+# <luigi.tibaldo@mpi-hd.mpg.de>, Warit Mitthumsiri <mwarit@hotmail.com>
 # Version: EarthPhenom-00-02-07
 Import('baseEnv')
 Import('listFiles')
