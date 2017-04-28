@@ -2,6 +2,30 @@
 TAG
 Tag name: ScienceTools-11-05-03, operation: add
 Package: microQuasar
+User: glastrm  Fri Apr 28 16:07:58 2017
+Files:
+  microQuasar/mq.txt  1.1.1.1
+  microQuasar/microQuasarLib.py  1.4
+  microQuasar/.cvsignore  1.2
+  microQuasar/ChangeLog  1.473
+  microQuasar/SConscript  1.11
+  microQuasar/cmt/.cvsignore  1.1.1.1
+  microQuasar/cmt/NMake  1.1.1.1
+  microQuasar/cmt/requirements  1.19
+  microQuasar/cmt/Makefile  1.1.1.1
+  microQuasar/doc/release.notes  1.15
+  microQuasar/microQuasar/microQuasar.h  1.17
+  microQuasar/src/microQuasar.cxx  1.33
+  microQuasar/src/mainpage.h  1.2
+  microQuasar/src/test/mq.txt  1.1.1.1
+  microQuasar/src/test/test_main.cxx  1.7
+  microQuasar/xml/mq.xml  1.5
+
+    *
+------------------------------------------------------------
+TAG
+Tag name: ScienceTools-11-05-03, operation: add
+Package: microQuasar
 User: glastrm  Fri Apr 28 16:06:58 2017
 Files:
 
