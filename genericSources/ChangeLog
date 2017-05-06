@@ -1,4 +1,13 @@
 ------------------------------------------------------------
+User: jrb  Fri May  5 18:06:04 PDT 2017
+celestialSources/genericSources
+
+Modified Files:
+	SConscript genericSourcesLib.py 
+Log Message:
+updates so that ST_User can be ROOTless
+    *
+------------------------------------------------------------
 TAG
 Tag name: ScienceTools-11-05-03, operation: add
 Package: genericSources
