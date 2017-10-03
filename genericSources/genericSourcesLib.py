@@ -13,7 +13,9 @@ def generate(env, **kw):
     env.Tool('eblAttenLib')
     env.Tool('addLibrary', library = env['cfitsioLibs'])
     env.Tool('addLibrary', library = env['clhepLibs'])
-    env.Tool('addLibrary', library = env['rootGuiLibs'])
+    if env.get('CONTAINERNAME', '') != 'ScienceTools_User':
+        env.Tool('addLibrary', library = env['rootGuiLibs'])
+
     if kw.get('incsOnly', 0) == 1: 
         env.Tool('findPkgPath', package = 'facilities') 
         env.Tool('findPkgPath', package = 'celestialSources') 
