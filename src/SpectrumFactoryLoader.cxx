@@ -28,7 +28,7 @@ ISpectrumFactory & MapSourceFactory();
 ISpectrumFactory & MapCubeFactory();
 ISpectrumFactory & PeriodicSourceFactory();
 ISpectrumFactory & PulsarFactory();
-ISpectrumFactory & PulsarSpectrumFactory();
+//ISpectrumFactory & PulsarSpectrumFactory();
 ISpectrumFactory & SourcePopulationFactory();
 ISpectrumFactory & SimpleTransientFactory();
 ISpectrumFactory & SpectralTransientFactory();
@@ -37,7 +37,7 @@ ISpectrumFactory & TF1SpectrumFactory();
 ISpectrumFactory & TF1MapFactory();
 ISpectrumFactory & FileSpectrumFactory();
 ISpectrumFactory & FileSpectrumMapFactory();
-ISpectrumFactory & microQuasarFactory();
+//ISpectrumFactory & microQuasarFactory();
 ISpectrumFactory & RadialSourceFactory();
 ISpectrumFactory & EarthPhenomLimbFactory();
 ISpectrumFactory & EarthPhenomInnerFactory();
@@ -68,7 +68,7 @@ SpectrumFactoryLoader::SpectrumFactoryLoader() {
    load(SpectralTransientFactory());
    load(TransientTemplateFactory());
 #ifndef BUILD_WITHOUT_ROOT
-   load(PulsarSpectrumFactory());
+   //load(PulsarSpectrumFactory());
    load(TF1SpectrumFactory());
    load(TF1MapFactory());
    load(EarthPhenomLimbFactory());
@@ -76,7 +76,7 @@ SpectrumFactoryLoader::SpectrumFactoryLoader() {
 #endif
    load(FileSpectrumFactory());
    load(FileSpectrumMapFactory());
-   load(microQuasarFactory());
+   // load(microQuasarFactory());
    load(RadialSourceFactory());
 }
 

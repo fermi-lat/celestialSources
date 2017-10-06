@@ -10,8 +10,12 @@ progEnv = baseEnv.Clone()
 libEnv = baseEnv.Clone()
 
 libEnv.Tool('addLinkDeps', package = 'celestialSources', toBuild='static')
-celestialSourcesLib = libEnv.StaticLibrary('celestialSources',
-                                           listFiles(['src/*.cxx']))
+if libEnv.get('CONTAINERNAME','') == 'ScienceTools_User':
+    celestialSourcesLib = libEnv.StaticLibrary('celestialSources',
+                                               listFiles(['src/SpectrumFactoryLoader.cxx']))
+else:
+    celestialSourcesLib = libEnv.StaticLibrary('celestialSources',
+                                               listFiles(['src/*.cxx']))
 
 progEnv.Tool('celestialSourcesLib')
 test_celestialSourcesBin = progEnv.Program('test_celestialSources',

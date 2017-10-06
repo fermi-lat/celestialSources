@@ -10,8 +10,21 @@ progEnv = baseEnv.Clone()
 libEnv = baseEnv.Clone()
 
 libEnv.Tool('addLinkDeps', package = 'genericSources', toBuild='static')
-genericSourcesLib = libEnv.StaticLibrary('genericSources',
-                                         listFiles(['src/*.cxx', 'src/*.c']))
+
+if libEnv.get('CONTAINERNAME','') != 'ScienceTools_User':
+    genericSourcesLib = libEnv.StaticLibrary('genericSources',
+                                             listFiles(['src/*.cxx', 'src/*.c']))
+else:
+    genericSourcesLib = libEnv.StaticLibrary('genericSources',
+                                             listFiles(['src/*.c', 
+                                                        'src/Fi*.cxx',
+                                                        'src/Gaus*.cxx',
+                                                        'src/Iso*.cxx',
+                                                        'src/Map*.cxx',
+                                                        'src/P*.cxx',
+                                                        'src/RadialSource.cxx',
+                                                        'src/S*.cxx',
+                                                        'src/Util.cxx']))
 
 progEnv.Tool('genericSourcesLib')
 
