@@ -150,9 +150,9 @@ void TestApp::setSources() {
                         "Crab_Pulsar",
                         "Geminga_Pulsar",
                         "gaussian_source",
-                        //"Extragalactic_diffuse",
-                        "map_cube_source",
-                        "map_cube_source_0",
+                        "Extragalactic_diffuse",
+                        //"map_cube_source",
+                        //"map_cube_source_0",
                         "fits_spectrum",
                         "source_population",
 #ifndef BUILD_WITHOUT_ROOT
