@@ -150,7 +150,7 @@ void TestApp::setSources() {
                         "Crab_Pulsar",
                         "Geminga_Pulsar",
                         "gaussian_source",
-                        "Extragalactic_diffuse",
+                        //"Extragalactic_diffuse",
                         "map_cube_source",
                         "map_cube_source_0",
                         "fits_spectrum",
@@ -177,6 +177,7 @@ void TestApp::setSources() {
          std::cerr << "adding source " << *name << std::endl;
          m_compositeSource->addSource(source);
          nsrcs++;
+	 std::cerr << "Source Added: " << *name << std::endl;
       } else {
          std::cerr << "Failed to find a source named \""
                    << *name << "\"" << std::endl;
