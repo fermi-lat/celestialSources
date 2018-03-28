@@ -151,8 +151,8 @@ void TestApp::setSources() {
                         "Geminga_Pulsar",
                         "gaussian_source",
                         "Extragalactic_diffuse",
-                        //"map_cube_source",
-                        //"map_cube_source_0",
+                        "map_cube_source",
+                        "map_cube_source_0",
                         "fits_spectrum",
                         "source_population",
 #ifndef BUILD_WITHOUT_ROOT
@@ -177,7 +177,6 @@ void TestApp::setSources() {
          std::cerr << "adding source " << *name << std::endl;
          m_compositeSource->addSource(source);
          nsrcs++;
-	 std::cerr << "Source Added: " << *name << std::endl;
       } else {
          std::cerr << "Failed to find a source named \""
                    << *name << "\"" << std::endl;
