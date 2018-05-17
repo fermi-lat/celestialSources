@@ -198,7 +198,7 @@ int main(int argn, char * argc[]) {
     galacticTest(&fm,source_name,tstart);
     return 0;
   }
-  std::string testfilename("test_GRB.out");
+  std::string testfilename("test_GRBobs.out");
   std::ostream* m_out = new std::ofstream(testfilename.c_str());
   std::ostream& out = *m_out;
   std::cout << "Writing test results to the file " << testfilename << std::endl;
