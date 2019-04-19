@@ -14,5 +14,5 @@ if baseEnv.get('CONTAINERNAME','') != 'ScienceTools_User':
 
     progEnv.Tool('registerTargets', package = 'SpectObj',
                  staticLibraryCxts = [[SpectObjLib, libEnv]],
-                 includes = listFiles(['SpectObj/*.h']),
+                 includes = listFiles(['SpectObj/*.h', 'eblAtten/*.h']),
                  data = listFiles(['data/*'], recursive = True))
