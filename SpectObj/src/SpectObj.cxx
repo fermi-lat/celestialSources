@@ -13,7 +13,7 @@
 
 //#include "SpectObj.h"
 #include "SpectObj/SpectObj.h"
-#include "eblAtten/EblAtten.h"
+#include "eblAtten/eblAtten/EblAtten.h"
 #include "facilities/commonUtilities.h"
 
 #include "CLHEP/Random/RandFlat.h"
@@ -32,7 +32,7 @@ SpectObj::SpectObj(const TH2D* In_Nv, int type, double z)
   m_FluxFactor = 1.0;
   sourceType = type;
   
-  Nv   = (TH2D*)In_Nv->Clone(); // ph/kev/s/m²
+  Nv   = (TH2D*)In_Nv->Clone(); // ph/kev/s/mÂ²
   std::string name;
   GetUniqueName(Nv,name);
   Nv->SetName(name.c_str());
@@ -139,7 +139,7 @@ Here we have implemented the "High UV" model from their paper
       for(int ti = 0; ti<nt; ti++)
 	{
 	  Nv->SetBinContent(ti+1, ei+1, 
-			    Nv->GetBinContent(ti+1, ei+1)*dei*m_TimeBinWidth); //[ph/m²]
+			    Nv->GetBinContent(ti+1, ei+1)*dei*m_TimeBinWidth); //[ph/mÂ²]
 	}  
     }
   SetAreaDetector(); // this fix the area to 6 square meters (default value) and rescale the histogram
@@ -505,8 +505,8 @@ double SpectObj::GetFluence(double BL, double BH)
 	  F+= Nv->GetBinContent(ti, ei)*en;//[keV]
 	}  
     }
-  return F*1.0e-7/(erg2meV*m_AreaDetector); //erg/cm²
-  //  return Nv->Integral(0,nt,ei1,ei2,"width")*1.0e-7/(m_TimeBinWidth*erg2meV)/m_AreaDetector; //erg/cm²
+  return F*1.0e-7/(erg2meV*m_AreaDetector); //erg/cmÂ²
+  //  return Nv->Integral(0,nt,ei1,ei2,"width")*1.0e-7/(m_TimeBinWidth*erg2meV)/m_AreaDetector; //erg/cmÂ²
 }
 
 double SpectObj::GetPeakFlux(double BL, double BH, double AccumulationTime)
@@ -542,7 +542,7 @@ double SpectObj::GetPeakFlux(double BL, double BH, double AccumulationTime)
       //PF = TMath::Max(PF,PF_t); //[ph]
     }
   
-  return PF*1e-4/(m_AreaDetector); //ph/cm²/s
+  return PF*1e-4/(m_AreaDetector); //ph/cmÂ²/s
 }
 
 
@@ -551,7 +551,7 @@ void SpectObj::ScaleAtBATSE(double fluence)
 
   double BATSEL = 20.0;    //20 keV
   double BATSEH = 1.0e+3;  // 1 MeV
-  double norm = GetFluence(BATSEL,BATSEH);//KeV/cm²
+  double norm = GetFluence(BATSEL,BATSEH);//KeV/cmÂ²
   Nv->Scale(fluence/norm);
 }
 
