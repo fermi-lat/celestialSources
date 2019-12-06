@@ -289,7 +289,7 @@ TH2D* PulsarSim::PSRPhenom(double par0, double par1, double par2, double par3, d
 	  WriteToLog("Building lightcurve from file "+ TimeProfileFileName);
 	}
       
-      ifstream TimeProfileFile;
+      std::ifstream TimeProfileFile;
       TimeProfileFile.open(TimeProfileFileName.c_str(), std::ios::in);
   
       if (! TimeProfileFile.is_open()) 
@@ -590,7 +590,7 @@ void PulsarSim::SaveTimeProfile(TH2D *Nv)
 
 
 
-  ofstream OutTimeProf(nameProfile.c_str());
+  std::ofstream OutTimeProf(nameProfile.c_str());
 
   int ei2 = Nv->GetYaxis()->FindBin(m_enphmin);
   int ei3 = Nv->GetYaxis()->FindBin(m_enphmax);
