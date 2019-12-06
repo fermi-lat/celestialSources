@@ -2,11 +2,11 @@
 def generate(env, **kw):
     if not kw.get('depsOnly',0):
         env.Tool('addLibrary', library = ['EarthPhenom'])
-	if env['PLATFORM']=='win32' and env.get('CONTAINERNAME','')=='GlastRelease':
-	    env.Tool('findPkgPath', package = 'EarthPhenom') 
-	    env.Tool('findPkgPath', package = 'flux') 
-	    env.Tool('findPkgPath', package = 'astro') 
-	    env.Tool('findPkgPath', package = 'facilities') 
+    if env['PLATFORM']=='win32' and env.get('CONTAINERNAME','')=='GlastRelease':
+        env.Tool('findPkgPath', package = 'EarthPhenom') 
+        env.Tool('findPkgPath', package = 'flux') 
+        env.Tool('findPkgPath', package = 'astro') 
+        env.Tool('findPkgPath', package = 'facilities') 
     env.Tool('genericSourcesLib')
     env.Tool('fluxLib')
     env.Tool('SpectObjLib')

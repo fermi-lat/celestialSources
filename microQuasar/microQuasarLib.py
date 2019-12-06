@@ -2,10 +2,10 @@
 def generate(env, **kw):
     if not kw.get('depsOnly',0):
         env.Tool('addLibrary', library = ['microQuasar'])
-	if env['PLATFORM'] == 'win32' and env.get('CONTAINERNAME','')=='GlastRelease':
-	    env.Tool('findPkgPath', package = 'microQuasar') 
-	    env.Tool('findPkgPath', package = 'genericSources') 
-	    env.Tool('findPkgPath', package = 'flux') 
+    if env['PLATFORM'] == 'win32' and env.get('CONTAINERNAME','')=='GlastRelease':
+        env.Tool('findPkgPath', package = 'microQuasar') 
+        env.Tool('findPkgPath', package = 'genericSources') 
+        env.Tool('findPkgPath', package = 'flux') 
 
     env.Tool('genericSourcesLib')
     env.Tool('fluxLib')
