@@ -13,7 +13,7 @@
 
 //#include "SpectObj.h"
 #include "SpectObj/SpectObj.h"
-#include "celestialSources/eblAtten/EblAtten.h"
+#include "eblAtten/EblAtten.h"
 #include "facilities/commonUtilities.h"
 
 #include "CLHEP/Random/RandFlat.h"
