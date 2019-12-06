@@ -3,7 +3,7 @@ def generate(env, **kw):
         env.Tool('addLibrary', library = ['eblAtten'])
         if (env['PLATFORM'] == 'win32' and
             env.get('CONTAINERNAME','') == 'GlastRelease'):
-	    env.Tool('findPkgPath', package = 'eblAtten') 
+            env.Tool('findPkgPath', package = 'eblAtten') 
             env.Tool('findPkgPath', package = 'facilities') 
             env.Tool('findPkgPath', package = 'st_facilities')
     env.Tool('facilitiesLib')

@@ -1,9 +1,9 @@
 def generate(env, **kw):
     if not kw.get('depsOnly',0):
         env.Tool('addLibrary', library = ['celestialSources'], package = 'celestialSources')
-	if env['PLATFORM'] == 'win32' and env.get('CONTAINERNAME','')=='GlastRelease':
-	    env.Tool('findPkgPath', package = 'celestialSources') 
-	    env.Tool('findPkgPath', package = 'facilities') 
+    if env['PLATFORM'] == 'win32' and env.get('CONTAINERNAME','')=='GlastRelease':
+        env.Tool('findPkgPath', package = 'celestialSources') 
+        env.Tool('findPkgPath', package = 'facilities') 
 
     env.Tool('genericSourcesLib')
     env.Tool('eblAttenLib')

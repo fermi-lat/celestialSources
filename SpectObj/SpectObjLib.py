@@ -1,8 +1,8 @@
 def generate(env, **kw):
     if not kw.get('depsOnly',0):
         env.Tool('addLibrary', library = ['SpectObj'])
-	if env['PLATFORM'] == 'win32' and env.get('CONTAINERNAME','')=='GlastRelease':
-	    env.Tool('findPkgPath', package = 'SpectObj') 
+        if env['PLATFORM'] == 'win32' and env.get('CONTAINERNAME','')=='GlastRelease':
+            env.Tool('findPkgPath', package = 'SpectObj') 
     env.Tool('eblAttenLib')
     env.Tool('addLibrary', library = env['rootLibs'])
     env.Tool('addLibrary', library = env['rootGuiLibs'])

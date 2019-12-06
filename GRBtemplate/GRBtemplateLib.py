@@ -1,11 +1,11 @@
 def generate(env, **kw):
     if not kw.get('depsOnly',0):
         env.Tool('addLibrary', library = ['GRBtemplate'], package = 'celestialSources/GRBtemplate')
-	if env['PLATFORM'] == 'win32' and env.get('CONTAINERNAME','') == 'GlastRelease':
-	    env.Tool('findPkgPath', package = 'flux') 
-	    env.Tool('findPkgPath', package = 'astro') 
-	    env.Tool('findPkgPath', package = 'facilities') 
-	    env.Tool('findPkgPath', package = 'GRBtemplate') 
+    if env['PLATFORM'] == 'win32' and env.get('CONTAINERNAME','') == 'GlastRelease':
+        env.Tool('findPkgPath', package = 'flux') 
+        env.Tool('findPkgPath', package = 'astro') 
+        env.Tool('findPkgPath', package = 'facilities') 
+        env.Tool('findPkgPath', package = 'GRBtemplate') 
 
     env.Tool('fluxLib')
     env.Tool('astroLib')
