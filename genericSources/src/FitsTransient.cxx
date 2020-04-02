@@ -207,7 +207,7 @@ computeIntegralDist(const std::vector<double> & times,
 
 void FitsTransient::
 readSpectra(std::vector< std::vector<double> > & spectra) const {
-   std::auto_ptr<const tip::Table> 
+   std::unique_ptr<const tip::Table> 
       table(tip::IFileSvc::instance().readTable(m_fitsFile, "SPECTRA"));
    int nrows(table->getNumRecords());
 
@@ -226,7 +226,7 @@ readSpectra(std::vector< std::vector<double> > & spectra) const {
 void FitsTransient::readTable(const std::string & ext, 
                               std::vector<double> & data,
                               const std::string & colname) const {
-   std::auto_ptr<const tip::Table> 
+   std::unique_ptr<const tip::Table> 
       table(tip::IFileSvc::instance().readTable(m_fitsFile, ext));
    int nrows(table->getNumRecords());
 

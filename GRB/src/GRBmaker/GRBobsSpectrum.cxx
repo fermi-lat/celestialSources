@@ -1,7 +1,7 @@
 // FILE: GRBobsSpectrum.cxx
 
 
-#include <memory>  // for auto_ptr
+#include <memory>  // for unique_ptr
 #include <fstream>
 
 
@@ -40,8 +40,8 @@ GRBobsSpectrum::GRBobsSpectrum(const std::string &params)
     std::vector<std::string> paramVector;
     parseParamList(params, paramVector);
     
-    std::auto_ptr<GRBmaker> grbMaker(new GRBmaker);
-    std::auto_ptr<GRBurst> p(grbMaker->create(paramVector));
+    std::unique_ptr<GRBmaker> grbMaker(new GRBmaker);
+    std::unique_ptr<GRBurst> p(grbMaker->create(paramVector));
     m_grb = p.release();
 }
 
@@ -56,8 +56,8 @@ GRBobsSpectrum::GRBobsSpectrum(const double duration, const int npuls,
                m_title("GRBobsSpectrum"),
                m_particleName("gamma")
 {
-    std::auto_ptr<GRBmaker> grbMaker(new GRBmaker);
-    std::auto_ptr<GRBurst> p(grbMaker->create(duration, npuls, flux, fraction, alpha,
+    std::unique_ptr<GRBmaker> grbMaker(new GRBmaker);
+    std::unique_ptr<GRBurst> p(grbMaker->create(duration, npuls, flux, fraction, alpha,
         beta, epeak, specnorm, flag));
     m_grb = p.release();
 }
