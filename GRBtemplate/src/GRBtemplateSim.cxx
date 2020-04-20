@@ -166,7 +166,7 @@ void GRBtemplateSim::GetUniqueName(void *ptr, std::string & name)
 
 TH2D* GRBtemplateSim::MakeGRB()
 {
-  ifstream iFile(m_InputFileName.c_str());
+  std::ifstream iFile(m_InputFileName.c_str());
   char dummy[100];
   iFile>>dummy>>m_EnergyBins;
   iFile>>dummy>>m_emin;
