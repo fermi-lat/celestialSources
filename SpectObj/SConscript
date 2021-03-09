@@ -9,10 +9,10 @@ if baseEnv.get('CONTAINERNAME','') != 'ScienceTools_User':
 
     progEnv = baseEnv.Clone()
 
-    libEnv.Tool('addLinkDeps', package = 'SpectObj', toBuild='static')
-    SpectObjLib = libEnv.StaticLibrary('SpectObj', listFiles(['src/*.cxx']))
-
-    progEnv.Tool('registerTargets', package = 'SpectObj',
-                 staticLibraryCxts = [[SpectObjLib, libEnv]],
-                 includes = listFiles(['SpectObj/*.h', 'eblAtten/*.h']),
-                 data = listFiles(['data/*'], recursive = True))
+    if baseEnv.GetOption('noroot') is False:
+        SpectObjLib = libEnv.StaticLibrary('SpectObj', listFiles(['src/*.cxx']))
+        libEnv.Tool('addLinkDeps', package = 'SpectObj', toBuild='static')
+        progEnv.Tool('registerTargets', package = 'SpectObj',
+                     staticLibraryCxts = [[SpectObjLib, libEnv]],
+                     includes = listFiles(['SpectObj/*.h', 'eblAtten/*.h']),
+                     data = listFiles(['data/*'], recursive = True))
