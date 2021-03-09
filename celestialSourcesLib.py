@@ -8,6 +8,7 @@ def generate(env, **kw):
     env.Tool('genericSourcesLib')
     env.Tool('eblAttenLib')
     if (env.get('CONTAINERNAME', '') != 'ScienceTools_User') and (env.GetOption('noroot') == False):
+        print("Triggered!")
         env.Tool('SpectObjLib')
         env.Tool('GRBLib')
         env.Tool('GRBobsLib')
