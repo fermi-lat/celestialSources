@@ -7,6 +7,7 @@ def generate(env, **kw):
 
     env.Tool('genericSourcesLib')
     env.Tool('eblAttenLib')
+    print("noroot?: "+env.GetOption('noroot'))
     if (env.get('CONTAINERNAME', '') != 'ScienceTools_User') and (env.GetOption('noroot') == False):
         print("Triggered!")
         env.Tool('SpectObjLib')
