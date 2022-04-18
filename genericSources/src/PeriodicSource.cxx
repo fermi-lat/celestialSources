@@ -73,7 +73,8 @@ double PeriodicSource::interval(double time) {
    std::transform(m_integralDist.begin() + imin,
                   m_integralDist.begin() + imin +  npts,
                   newDist.begin(), 
-                  std::bind2nd(std::minus<double>(), m_integralDist[imin]));
+                  [&](auto const& elem){ return elem - m_integralDist[imin]; }
+                  );
    double xi = -log(CLHEP::RandFlat::shoot());
    unsigned int turns = static_cast<unsigned int>(xi/newDist[npts-1]);
    double resid = fmod(xi, newDist[npts-1]);
