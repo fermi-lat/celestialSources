@@ -8,7 +8,7 @@ target_include_directories(
 target_link_libraries(celestialSources PUBLIC facilities flux CLHEP::CLHEP)
 
 if(NOT FERMI_BUILD_ROOT)
-  target_compile_definitions(celestialSources PUBLIC BUILD_WITHOUT_ROOT)
+  target_compile_definitions(celestialSources PRIVATE BUILD_WITHOUT_ROOT)
   add_subdirectory(eblAtten)
   add_subdirectory(genericSources)
 else()
@@ -26,3 +26,17 @@ endif()
 # add_executable(test_celestialSources src/test/test.cxx)
 # target_link_libraries(test_celestialSources PRIVATE celestialSources)
 
+
+###############################################################
+# Installation
+###############################################################
+install(DIRECTORY celestialSources DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(
+  TARGETS celestialSources
+  # EXPORT fermiTargets
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)

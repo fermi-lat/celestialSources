@@ -43,3 +43,17 @@ target_link_libraries(
 #   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
 #   $<INSTALL_INTERFACE:>
 # )
+
+###############################################################
+# Installation
+###############################################################
+install(DIRECTORY genericSources DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(
+  TARGETS genericSources
+  # EXPORT fermiTargets
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)

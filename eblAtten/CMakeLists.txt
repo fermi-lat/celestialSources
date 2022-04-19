@@ -19,3 +19,17 @@ target_link_libraries(
 
 add_executable(test_eblAtten src/test/test.cxx)
 target_link_libraries(test_eblAtten PRIVATE eblAtten)
+
+###############################################################
+# Installation
+###############################################################
+install(DIRECTORY eblAtten DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(
+  TARGETS eblAtten
+  # EXPORT fermiTargets
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
