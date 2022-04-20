@@ -17,6 +17,7 @@ add_library(
   src/SimpleTransient.cxx
   src/SourcePopulation.cxx
   src/SpectralTransient.cxx
+  src/TransientTemplate.cxx
   src/Util.cxx
 )
 target_include_directories(
@@ -36,13 +37,13 @@ target_link_libraries(
   CLHEP::CLHEP
 )
 
-# add_executable(test_genericSources src/test/test.cxx)
-# target_link_libraries(test_genericSources PRIVATE genericSources)
-# target_include_directories(
-#   test_genericSources PUBLIC
-#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-#   $<INSTALL_INTERFACE:>
-# )
+add_executable(test_genericSources src/test/test.cxx)
+target_link_libraries(test_genericSources PRIVATE genericSources)
+target_include_directories(
+  test_genericSources PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+  $<INSTALL_INTERFACE:>
+)
 
 ###############################################################
 # Installation
@@ -52,7 +53,7 @@ install(DIRECTORY data/ DESTINATION ${FERMI_INSTALL_DATADIR})
 install(DIRECTORY xml/ DESTINATION ${FERMI_INSTALL_XMLDIR})
 
 install(
-  TARGETS genericSources
+  TARGETS genericSources test_genericSources
   # EXPORT fermiTargets
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   LIBRARY DESTINATION lib
