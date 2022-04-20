@@ -30,7 +30,7 @@ endif()
 ###############################################################
 # Installation
 ###############################################################
-install(DIRECTORY celestialSources DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY celestialSources DESTINATION ${FERMI_INSTALL_INCLUDEDIR})
 
 install(
   TARGETS celestialSources

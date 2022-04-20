@@ -47,7 +47,9 @@ target_link_libraries(
 ###############################################################
 # Installation
 ###############################################################
-install(DIRECTORY genericSources DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY genericSources DESTINATION ${FERMI_INSTALL_INCLUDEDIR})
+install(DIRECTORY data/ DESTINATION ${FERMI_INSTALL_DATADIR})
+install(DIRECTORY xml/ DESTINATION ${FERMI_INSTALL_XMLDIR})
 
 install(
   TARGETS genericSources

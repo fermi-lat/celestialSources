@@ -23,7 +23,8 @@ target_link_libraries(test_eblAtten PRIVATE eblAtten)
 ###############################################################
 # Installation
 ###############################################################
-install(DIRECTORY eblAtten DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY eblAtten DESTINATION ${FERMI_INSTALL_INCLUDEDIR})
+install(DIRECTORY data/ DESTINATION ${FERMI_INSTALL_DATADIR})
 
 install(
   TARGETS eblAtten
