@@ -35,10 +35,11 @@ target_link_libraries(
   astro
   PkgConfig::cfitsio
   CLHEP::CLHEP
+  PRIVATE tip
 )
 
 add_executable(test_genericSources src/test/test.cxx)
-target_link_libraries(test_genericSources PRIVATE genericSources)
+target_link_libraries(test_genericSources PRIVATE genericSources tip)
 target_include_directories(
   test_genericSources PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
