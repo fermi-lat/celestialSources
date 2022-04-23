@@ -51,7 +51,7 @@ target_include_directories(
 ###############################################################
 install(DIRECTORY genericSources DESTINATION ${FERMI_INSTALL_INCLUDEDIR})
 install(DIRECTORY data/ DESTINATION ${FERMI_INSTALL_DATADIR})
-install(DIRECTORY xml/ DESTINATION ${FERMI_INSTALL_XMLDIR})
+install(DIRECTORY xml/ DESTINATION ${FERMI_INSTALL_XMLDIR}/fermi/genericSources)
 
 install(
   TARGETS genericSources test_genericSources
