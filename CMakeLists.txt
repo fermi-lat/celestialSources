@@ -7,8 +7,6 @@ target_include_directories(
 
 if(NOT FERMI_BUILD_ROOT)
   target_compile_definitions(celestialSources PRIVATE BUILD_WITHOUT_ROOT)
-  add_subdirectory(eblAtten)
-  add_subdirectory(genericSources)
 else()
   target_sources(celestialSources src/TRandom4.cxx)
   add_subdirectory(EarthPhenom)
@@ -20,6 +18,10 @@ else()
   # add_subdirectory(pySources)
   # add_subdirectory(SpectObj)
 endif()
+
+add_subdirectory(eblAtten)
+add_subdirectory(genericSources)
+add_subdirectory(microQuasar)
 
 target_link_libraries(celestialSources PRIVATE eblAtten genericSources)
 

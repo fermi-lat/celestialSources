@@ -50,7 +50,7 @@ target_include_directories(
 # Installation
 ###############################################################
 install(DIRECTORY genericSources DESTINATION ${FERMI_INSTALL_INCLUDEDIR})
-install(DIRECTORY data/ DESTINATION ${FERMI_INSTALL_DATADIR})
+install(DIRECTORY data/ DESTINATION ${FERMI_INSTALL_DATADIR}/genericSources)
 install(DIRECTORY xml/ DESTINATION ${FERMI_INSTALL_XMLDIR}/fermi/genericSources)
 
 install(

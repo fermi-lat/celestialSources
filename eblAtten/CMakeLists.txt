@@ -24,7 +24,7 @@ target_link_libraries(test_eblAtten PRIVATE eblAtten)
 # Installation
 ###############################################################
 install(DIRECTORY eblAtten DESTINATION ${FERMI_INSTALL_INCLUDEDIR})
-install(DIRECTORY data/ DESTINATION ${FERMI_INSTALL_DATADIR})
+install(DIRECTORY data/ DESTINATION ${FERMI_INSTALL_REFDATADIR}/eblAtten)
 
 install(
   TARGETS eblAtten test_eblAtten
