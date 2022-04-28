@@ -15,7 +15,7 @@ target_link_libraries(test_microQuasar PRIVATE microQuasar flux)
 # Installation
 ###############################################################
 install(DIRECTORY microQuasar DESTINATION ${FERMI_INSTALL_INCLUDEDIR})
-install(DIRECTORY xml/ DESTINATION ${FERMI_INSTALL_XMLDIR}/fermi/microQuasar)
+install(DIRECTORY xml/ DESTINATION ${FERMI_INSTALL_XMLDIR}/microQuasar)
 
 install(
   TARGETS microQuasar test_microQuasar
