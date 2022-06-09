@@ -1,4 +1,4 @@
-add_library(celestialSources STATIC src/SpectrumFactoryLoader.cxx)
+add_library(celestialSources src/SpectrumFactoryLoader.cxx)
 target_include_directories(
   celestialSources PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
