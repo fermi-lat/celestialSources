@@ -21,15 +21,14 @@ add_library(
   src/Util.cxx
 )
 target_include_directories(
-  genericSources PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-  $<INSTALL_INTERFACE:>
+  genericSources
+  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}> $<INSTALL_INTERFACE:>
+  PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../>
 )
 
 target_link_libraries(
   genericSources PUBLIC
   facilities
-  celestialSources
   eblAtten
   flux
   astro
