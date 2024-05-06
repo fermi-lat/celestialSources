@@ -33,7 +33,7 @@ target_link_libraries(
   eblAtten
   flux
   astro
-  PkgConfig::cfitsio
+  cfitsio::cfitsio
   CLHEP::CLHEP
   PRIVATE tip
 )
