@@ -17,6 +17,8 @@ target_link_libraries(
 )
 # target_compile_definitions(eblAtten PUBLIC TRAP_FPE)
 
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
 add_executable(test_eblAtten src/test/test.cxx)
 target_link_libraries(test_eblAtten PRIVATE eblAtten)
 

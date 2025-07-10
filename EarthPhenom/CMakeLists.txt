@@ -12,5 +12,7 @@ target_link_libraries(EarthPhenom
 PUBLIC astro facilities flux ROOT::Core
 PRIVATE CLHEP::RandomS)
 
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
 add_executable(test_EarthPhenom src/test/test_main.cxx)
 target_link_libraries(test_EarthPhenom EarthPhenom)

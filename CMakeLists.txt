@@ -26,6 +26,8 @@ add_subdirectory(microQuasar)
 target_link_libraries(celestialSources PRIVATE eblAtten genericSources)
 
 #### Tests ####
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
 add_executable(test_celestialSources src/test/test.cxx)
 target_link_libraries(test_celestialSources PRIVATE celestialSources)
 
