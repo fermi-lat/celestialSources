@@ -34,7 +34,8 @@ target_link_libraries(
   flux
   astro
   cfitsio::cfitsio
-  CLHEP::CLHEP
+  CLHEP::RandomS
+  CLHEP::VectorS
   PRIVATE tip
 )
 

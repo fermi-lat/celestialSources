@@ -8,7 +8,11 @@ target_include_directories(
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
   $<INSTALL_INTERFACE:>
 )
-target_link_libraries(EarthPhenom PUBLIC astro facilities flux ROOT::Core)
+target_link_libraries(EarthPhenom
+PUBLIC astro facilities flux ROOT::Core
+PRIVATE CLHEP::RandomS)
+
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 add_executable(test_EarthPhenom src/test/test_main.cxx)
 target_link_libraries(test_EarthPhenom EarthPhenom)
