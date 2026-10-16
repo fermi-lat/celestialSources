@@ -23,7 +23,7 @@
 
 #include "celestialSources/ConstParMap.h"
 
-ISpectrumFactory & GaussianSpectrumFactory() {
+auto GaussianSpectrumFactory() -> ISpectrumFactory & {
    static SpectrumFactory<GaussianSpectrum> myFactory;
    return myFactory;
 }
@@ -40,34 +40,34 @@ GaussianSpectrum::GaussianSpectrum(const std::string & paramString)
    m_b = pars.value("glat");
 }
 
-float GaussianSpectrum::operator()(float xi) const {
+auto GaussianSpectrum::operator()(float xi) const -> float {
    (void)(xi);
    float energy(CLHEP::RandGauss::shoot(m_mean, m_sigma));
    return energy;
 }
 
-double GaussianSpectrum::flux(double time) const {
+auto GaussianSpectrum::flux(double time) const -> double {
    (void)(time);
    return m_flux;
 }
 
-double GaussianSpectrum::solidAngle() const {
+auto GaussianSpectrum::solidAngle() const -> double {
    return 1;
 }
 
-double GaussianSpectrum::interval(double time) {
+auto GaussianSpectrum::interval(double time) -> double {
    double rate = flux(time)*EventSource::totalArea();
    double xi = CLHEP::RandFlat::shoot();
    return -std::log(1. - xi)/rate;
 }
 
-double GaussianSpectrum::energy(double time) {
+auto GaussianSpectrum::energy(double time) -> double {
    (void)(time);
    double xi(0);
    return (*this)(xi);
 }
 
-std::pair<double, double> GaussianSpectrum::dir(double energy) {
+auto GaussianSpectrum::dir(double energy) -> std::pair<double, double> {
    (void)(energy);
    return std::make_pair(m_l, m_b);
 }

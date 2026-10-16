@@ -15,7 +15,7 @@
 #include "Primack05.h"
 
 namespace {
-   size_t findIndex(float target, const std::vector<float> & values) {
+   auto findIndex(float target, const std::vector<float> & values) -> size_t {
       if (target >= values.back()) {
          return values.size() - 2;
       } else if (target <= values.front()) {
@@ -48,14 +48,14 @@ Primack05::Primack05() {
    fillTauTables();
 }
 
-Primack05 & Primack05::instance() {
+auto Primack05::instance() -> Primack05 & {
    if (s_instance == 0) {
       s_instance = new Primack05();
    }
    return *s_instance;
 }
 
-float Primack05::value(float energy, float redshift) const {
+auto Primack05::value(float energy, float redshift) const -> float {
    if (energy < m_evalue.front()) {
       return 0;
    }

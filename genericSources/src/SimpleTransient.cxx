@@ -23,7 +23,7 @@
 
 #include "genericSources/SimpleTransient.h"
 
-ISpectrumFactory & SimpleTransientFactory() {
+auto SimpleTransientFactory() -> ISpectrumFactory & {
    static SpectrumFactory<SimpleTransient> myFactory;
    return myFactory;
 }
@@ -45,7 +45,7 @@ SimpleTransient::SimpleTransient(const std::string & paramString)
    createEventTimes();
 }
 
-float SimpleTransient::operator()(float xi) const {
+auto SimpleTransient::operator()(float xi) const -> float {
    float energy;
    if (m_gamma == 1.) {
       energy = m_emin*std::exp(xi*std::log(m_emax/m_emin));
@@ -58,7 +58,7 @@ float SimpleTransient::operator()(float xi) const {
    return energy;
 }
 
-double SimpleTransient::interval(double time) {
+auto SimpleTransient::interval(double time) -> double {
    time -= Spectrum::startTime();
    std::vector<double>::const_iterator eventTime =
       std::upper_bound(m_eventTimes.begin(), m_eventTimes.end(), time);
@@ -69,7 +69,7 @@ double SimpleTransient::interval(double time) {
    return 3.15e8;
 }
 
-double SimpleTransient::energy(double time) {
+auto SimpleTransient::energy(double time) -> double {
    (void)(time);
    double xi = CLHEP::RandFlat::shoot();
    return (*this)(xi);

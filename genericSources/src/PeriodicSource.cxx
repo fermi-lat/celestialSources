@@ -21,7 +21,7 @@
 
 #include "genericSources/PeriodicSource.h"
 
-ISpectrumFactory &PeriodicSourceFactory() {
+auto PeriodicSourceFactory() -> ISpectrumFactory & {
    static SpectrumFactory<PeriodicSource> myFactory;
    return myFactory;
 }
@@ -47,7 +47,7 @@ PeriodicSource::PeriodicSource(const std::string &paramString)
    computeIntegralDistribution();
 }
 
-float PeriodicSource::operator()(float xi) const {
+auto PeriodicSource::operator()(float xi) const -> float {
    double one_m_gamma = 1. - m_gamma;
    double arg = xi*(pow(m_emax, one_m_gamma) - pow(m_emin, one_m_gamma)) 
       + pow(m_emin, one_m_gamma);
@@ -55,13 +55,13 @@ float PeriodicSource::operator()(float xi) const {
    return energy;
 }
 
-double PeriodicSource::energy(double time) {
+auto PeriodicSource::energy(double time) -> double {
    (void)(time);
    double xi = CLHEP::RandFlat::shoot();
    return (*this)(xi);
 }
 
-double PeriodicSource::interval(double time) {
+auto PeriodicSource::interval(double time) -> double {
    time -= Spectrum::startTime();
    double phase = fmod(time, m_period);
    std::vector<double>::const_iterator it 
@@ -70,6 +70,7 @@ double PeriodicSource::interval(double time) {
    unsigned int imin = it - m_arrTimes.begin();
    unsigned int npts = m_arrTimes.size();
    std::vector<double> newDist(npts);
+   // [&](auto const& elem -> auto){ return elem - m_integralDist[imin]; }
    std::transform(m_integralDist.begin() + imin,
                   m_integralDist.begin() + imin +  npts,
                   newDist.begin(), 
@@ -83,9 +84,9 @@ double PeriodicSource::interval(double time) {
    return my_interval;
 }
 
-double PeriodicSource::interpolate(const std::vector<double> &x,
+auto PeriodicSource::interpolate(const std::vector<double> &x,
                                    const std::vector<double> &y,
-                                   double xx) {
+                                   double xx) -> double {
    std::vector<double>::const_iterator it 
       = std::upper_bound(x.begin(), x.end(), xx) - 1;
    unsigned int indx = it - x.begin();

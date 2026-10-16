@@ -19,7 +19,7 @@
 #include "FitsImage.h"
 
 namespace {
-   bool withinBounds(double value, std::vector<double> array) {
+   auto withinBounds(double value, std::vector<double> array) -> bool {
       return ((array.front() < value && value < array.back()) || 
               (array.back() < value && value < array.front()));
    }
@@ -48,7 +48,7 @@ FitsImage::FitsImage(const std::string & filename) {
    }
 }
 
-double FitsImage::operator()(const astro::SkyDir & dir, size_t iz) const {
+auto FitsImage::operator()(const astro::SkyDir & dir, size_t iz) const -> double {
    double lon, lat;
    if (m_coordSys == astro::SkyDir::GALACTIC) {
       lon = dir.l();
@@ -157,7 +157,7 @@ AxisParams::computeAxisVector(std::vector<double> &axisVector) {
    }
 }
 
-double FitsImage::mapIntegral() const {
+auto FitsImage::mapIntegral() const -> double {
    std::vector<double> solidAngles;
    getSolidAngles(solidAngles);
    double map_integral(0);
@@ -283,8 +283,8 @@ void FitsImage::read_fits_image(std::string & filename,
    fitsReportError(status);
 }
 
-int FitsImage::findHdu(const std::string & filename, 
-                       const std::string & extension) {
+auto FitsImage::findHdu(const std::string & filename, 
+                       const std::string & extension) -> int {
    s_fitsRoutine = "findHdu";
    
    int status(0);

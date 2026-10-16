@@ -10,7 +10,7 @@
 #include <cstdlib>
 #include <iostream>
 
-ISpectrumFactory &FileSpectrumMapFactory() {
+auto FileSpectrumMapFactory() -> ISpectrumFactory & {
   static SpectrumFactory<FileSpectrumMap> factory;
   return factory;
 }

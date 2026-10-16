@@ -17,7 +17,7 @@ namespace {
     int default_count =100 ;
     std::string default_source("Galactic_LS5039");
 }
-ISpectrumFactory & microQuasarFactory();
+auto microQuasarFactory() -> ISpectrumFactory &;
 
 
 void listSources(const std::list<std::string>& source_list ) {
@@ -40,7 +40,7 @@ void listSpectra() {
 
 
 
-int main(int argn, char * argc[]) {
+auto main(int argn, char * argc[]) -> int {
     using std::cout;
     using std::endl;
     int rc(0);

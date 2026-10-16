@@ -68,7 +68,7 @@ namespace {
 
 IRB::EblAtten * SourcePopulation::PointSource::s_tau(0);
 
-ISpectrumFactory & SourcePopulationFactory() {
+auto SourcePopulationFactory() -> ISpectrumFactory & {
    static SpectrumFactory<SourcePopulation> myFactory;
    return myFactory;
 }
@@ -135,7 +135,7 @@ void SourcePopulation::readSourceFile(std::string input_file) {
    }
 }
 
-float SourcePopulation::operator()(float xi) {
+auto SourcePopulation::operator()(float xi) -> float {
    xi *= m_flux;
    std::vector<double>::const_iterator it = 
       std::upper_bound(m_cumulativeFlux.begin(), m_cumulativeFlux.end(), xi);
@@ -148,13 +148,13 @@ float SourcePopulation::operator()(float xi) {
    return m_currentEnergy;
 }
 
-double SourcePopulation::energy(double time) {
+auto SourcePopulation::energy(double time) -> double {
    (void)(time);
    double xi = CLHEP::RandFlat::shoot();
    return this->operator()(xi);
 }
 
-double SourcePopulation::interval(double time) {
+auto SourcePopulation::interval(double time) -> double {
    (void)(time);
    double my_interval = 
       -std::log(1. - CLHEP::RandFlat::shoot())/m_flux/EventSource::totalArea();
@@ -165,7 +165,7 @@ double SourcePopulation::interval(double time) {
    return my_interval;
 }
 
-std::string SourcePopulation::name() const {
+auto SourcePopulation::name() const -> std::string {
    return m_name;
 }
 
@@ -208,8 +208,8 @@ PointSource::setPowerLaw() {
    m_frac = m_part1/(m_part1 + m_part2);
 }
 
-double SourcePopulation::
-PointSource::energy() const {
+auto SourcePopulation::
+PointSource::energy() const -> double {
    double my_energy;
    double xi(CLHEP::RandFlat::shoot());
    if (xi < m_frac) {
@@ -230,8 +230,8 @@ PointSource::energy() const {
    return my_energy;
 }
 
-double SourcePopulation::
-PointSource::integral(double emin, double emax) {
+auto SourcePopulation::
+PointSource::integral(double emin, double emax) -> double {
    double err(1e-5);
    double result(0);
    int ierr;
@@ -241,8 +241,8 @@ PointSource::integral(double emin, double emax) {
    return result;
 }
 
-double SourcePopulation::
-PointSource::dnde(double energy) const {
+auto SourcePopulation::
+PointSource::dnde(double energy) const -> double {
    if (energy < m_emin || energy > m_emax) {
       return 0;
    }
@@ -255,8 +255,8 @@ PointSource::dnde(double energy) const {
    return attenuation(energy)*std::pow(energy/m_ebreak, -gamma);
 }
 
-double SourcePopulation::
-PointSource::attenuation(double energy) const {
+auto SourcePopulation::
+PointSource::attenuation(double energy) const -> double {
    double atten(1.);
    if (s_tau != 0) {
       atten = std::exp(-s_tau->operator()(energy, m_z));

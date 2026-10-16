@@ -16,31 +16,31 @@
 #include "flux/ISpectrumFactory.h"
 
 // declare the external factories.
-ISpectrumFactory & FitsTransientFactory();
-ISpectrumFactory & GaussianSourceFactory();
-ISpectrumFactory & GaussianSpectrumFactory();
-ISpectrumFactory & GRBmanagerFactory();
-ISpectrumFactory & GRBobsmanagerFactory();
-ISpectrumFactory & GRBtemplateManagerFactory();
-ISpectrumFactory & IsotropicFactory();
-ISpectrumFactory & IsotropicFileSpectrumFactory();
-ISpectrumFactory & MapSourceFactory();
-ISpectrumFactory & MapCubeFactory();
-ISpectrumFactory & PeriodicSourceFactory();
-ISpectrumFactory & PulsarFactory();
+auto FitsTransientFactory() -> ISpectrumFactory &;
+auto GaussianSourceFactory() -> ISpectrumFactory &;
+auto GaussianSpectrumFactory() -> ISpectrumFactory &;
+auto GRBmanagerFactory() -> ISpectrumFactory &;
+auto GRBobsmanagerFactory() -> ISpectrumFactory &;
+auto GRBtemplateManagerFactory() -> ISpectrumFactory &;
+auto IsotropicFactory() -> ISpectrumFactory &;
+auto IsotropicFileSpectrumFactory() -> ISpectrumFactory &;
+auto MapSourceFactory() -> ISpectrumFactory &;
+auto MapCubeFactory() -> ISpectrumFactory &;
+auto PeriodicSourceFactory() -> ISpectrumFactory &;
+auto PulsarFactory() -> ISpectrumFactory &;
 //ISpectrumFactory & PulsarSpectrumFactory();
-ISpectrumFactory & SourcePopulationFactory();
-ISpectrumFactory & SimpleTransientFactory();
-ISpectrumFactory & SpectralTransientFactory();
-ISpectrumFactory & TransientTemplateFactory();
-ISpectrumFactory & TF1SpectrumFactory();
-ISpectrumFactory & TF1MapFactory();
-ISpectrumFactory & FileSpectrumFactory();
-ISpectrumFactory & FileSpectrumMapFactory();
+auto SourcePopulationFactory() -> ISpectrumFactory &;
+auto SimpleTransientFactory() -> ISpectrumFactory &;
+auto SpectralTransientFactory() -> ISpectrumFactory &;
+auto TransientTemplateFactory() -> ISpectrumFactory &;
+auto TF1SpectrumFactory() -> ISpectrumFactory &;
+auto TF1MapFactory() -> ISpectrumFactory &;
+auto FileSpectrumFactory() -> ISpectrumFactory &;
+auto FileSpectrumMapFactory() -> ISpectrumFactory &;
 //ISpectrumFactory & microQuasarFactory();
-ISpectrumFactory & RadialSourceFactory();
-ISpectrumFactory & EarthPhenomLimbFactory();
-ISpectrumFactory & EarthPhenomInnerFactory();
+auto RadialSourceFactory() -> ISpectrumFactory &;
+auto EarthPhenomLimbFactory() -> ISpectrumFactory &;
+auto EarthPhenomInnerFactory() -> ISpectrumFactory &;
 
 SpectrumFactoryLoader::SpectrumFactoryLoader() {
 // Replace ROOT's global TRandom instance with our local version that

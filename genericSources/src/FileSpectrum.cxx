@@ -25,7 +25,7 @@
 #include "Util.h"
 
 namespace {
-   double pl_integral(double e1, double e2, double f1, double f2) {
+   auto pl_integral(double e1, double e2, double f1, double f2) -> double {
       double gamma(std::log(f2/f1)/std::log(e2/e1));
       double n0(f1/std::pow(e1, gamma));
       double my_value(0);
@@ -38,7 +38,7 @@ namespace {
       return my_value;
    }
 
-   double pl_draw(double e1, double e2, double f1, double f2) {
+   auto pl_draw(double e1, double e2, double f1, double f2) -> double {
       double xi(CLHEP::RandFlat::shoot());
       
       double gamma(std::log(f2/f1)/std::log(e2/e1));
@@ -50,7 +50,7 @@ namespace {
    }
 }
 
-ISpectrumFactory & FileSpectrumFactory() {
+auto FileSpectrumFactory() -> ISpectrumFactory & {
    static SpectrumFactory<FileSpectrum> factory;
    return factory;
 }
@@ -88,16 +88,16 @@ FileSpectrum::FileSpectrum(const std::string& params)
    }
 }
 
-double FileSpectrum::flux() const {
+auto FileSpectrum::flux() const -> double {
    return m_flux;
 }
 
-double FileSpectrum::flux(double time) const {
+auto FileSpectrum::flux(double time) const -> double {
    (void)(time);
    return m_flux;
 }
 
-float FileSpectrum::operator()(float xi) {
+auto FileSpectrum::operator()(float xi) -> float {
    size_t k(std::upper_bound(m_integralSpectrum.begin(),
                              m_integralSpectrum.end(), xi) 
             - m_integralSpectrum.begin());
@@ -105,15 +105,15 @@ float FileSpectrum::operator()(float xi) {
                     m_dnde.at(k-1), m_dnde.at(k));
 }
 
-std::string FileSpectrum::title() const {
+auto FileSpectrum::title() const -> std::string {
     return "FileSpectrum";
 }
 
-const char * FileSpectrum::particleName() const {
+auto FileSpectrum::particleName() const -> const char * {
     return m_particle_name.c_str();
 }
 
-double FileSpectrum::read_file(const std::string & infile) {
+auto FileSpectrum::read_file(const std::string & infile) -> double {
    genericSources::Util::file_ok(infile);
    std::vector<std::string> lines;
    genericSources::Util::readLines(infile, lines, "%#");
@@ -171,7 +171,7 @@ void FileSpectrum::reset_ebounds() {
 //       std::copy(emin, m_energies.end(), energies.begin() + 1);
 }
 
-double FileSpectrum::compute_integral_dist() {
+auto FileSpectrum::compute_integral_dist() -> double {
 // Form the integral distribution going from high energies to low
 // energies since most spectra will be falling as a function of energy
 // and we want rare, high energy events to be sampled near zero where

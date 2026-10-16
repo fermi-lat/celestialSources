@@ -32,7 +32,7 @@
 
 #include "genericSources/MapCube.h"
 
-ISpectrumFactory & MapCubeFactory() {
+auto MapCubeFactory() -> ISpectrumFactory & {
    static SpectrumFactory<MapCube> myFactory;
    return myFactory;
 }
@@ -110,7 +110,7 @@ void MapCube::checkForNonPositivePixels(const std::string & fitsFile) const {
    }
 }
 
-float MapCube::operator()(float xi) const {
+auto MapCube::operator()(float xi) const -> float {
    std::vector<double>::const_iterator it 
       = std::upper_bound(m_integralDist.begin(), m_integralDist.end(), xi);
    unsigned int indx = it - m_integralDist.begin();
@@ -128,13 +128,13 @@ float MapCube::operator()(float xi) const {
    return energy;
 }
 
-double MapCube::energy(double time) {
+auto MapCube::energy(double time) -> double {
    (void)(time);
    double xi = CLHEP::RandFlat::shoot();
    return (*this)(xi);
 }
 
-double MapCube::mapValue(unsigned int i, unsigned int j, unsigned int k) {
+auto MapCube::mapValue(unsigned int i, unsigned int j, unsigned int k) -> double {
    unsigned int indx = k*m_lon.size()*m_lat.size() + j*m_lon.size() + i;
    return m_image.at(indx);
 }
@@ -183,8 +183,8 @@ void MapCube::makeCumulativeSpectra() {
    }
 }
 
-double MapCube::powerLawIntegral(double x1, double x2,
-                                 double y1, double y2, double & gamma) const {
+auto MapCube::powerLawIntegral(double x1, double x2,
+                                 double y1, double y2, double & gamma) const -> double {
    gamma = std::log(y2/y1)/std::log(x2/x1);
    double n0 = y1/std::pow(x1, gamma);
    double integral;
@@ -197,8 +197,8 @@ double MapCube::powerLawIntegral(double x1, double x2,
    return integral;
 }
 
-double MapCube::
-drawEnergy(const Spectrum_t & spectrum) const {
+auto MapCube::
+drawEnergy(const Spectrum_t & spectrum) const -> double {
    double xi = CLHEP::RandFlat::shoot()*spectrum.back().first;
    Spectrum_t::const_iterator it 
       = std::upper_bound(spectrum.begin(), spectrum.end(),
@@ -213,7 +213,7 @@ drawEnergy(const Spectrum_t & spectrum) const {
    return value;
 }
 
-bool MapCube::cmpPair(const SpectralPoint_t & x, 
-                      const SpectralPoint_t & y) {
+auto MapCube::cmpPair(const SpectralPoint_t & x, 
+                      const SpectralPoint_t & y) -> bool {
    return x.first < y.first;
 }

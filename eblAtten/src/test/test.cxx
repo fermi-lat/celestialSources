@@ -18,7 +18,7 @@
 
 #include "eblAtten/EblAtten.h"
 
-int main() {
+auto main() -> int {
 #ifdef TRAP_FPE
    feenableexcept(FE_INVALID | FE_DIVBYZERO | FE_OVERFLOW);
 #endif

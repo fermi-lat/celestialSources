@@ -26,7 +26,7 @@ AsciiTableModel::AsciiTableModel(const std::string & infile)
    read_ascii_table();
 }
 
-float AsciiTableModel::value(float energy, float redshift) const {
+auto AsciiTableModel::value(float energy, float redshift) const -> float {
    if (redshift <= m_redshifts.front() || energy <= m_energies.front()) {
       return 0;
    }
@@ -92,8 +92,8 @@ void AsciiTableModel::read_ascii_table() {
    }
 }
 
-float AsciiTableModel::tau_of_e(float redshift, size_t e_index,
-                                size_t z_index) const {
+auto AsciiTableModel::tau_of_e(float redshift, size_t e_index,
+                                size_t z_index) const -> float {
    float tau = ( (redshift - m_redshifts[z_index])
                  /(m_redshifts[z_index+1] - m_redshifts[z_index])
                  *(m_tau_array[e_index][z_index+1] - m_tau_array[e_index][z_index])

@@ -26,7 +26,7 @@
 
 namespace genericSources {
 
-   bool Util::fileExists(const std::string & filename) {
+   auto Util::fileExists(const std::string & filename) -> bool {
       std::ifstream file(filename.c_str());
       return file.is_open();
    }
@@ -68,7 +68,7 @@ namespace genericSources {
       }
    }
 
-   bool Util::isFitsFile(std::string filename) {
+   auto Util::isFitsFile(std::string filename) -> bool {
       facilities::Util::expandEnvVar(&filename);
       std::ifstream file(filename.c_str());
       std::string firstLine;
@@ -76,7 +76,7 @@ namespace genericSources {
       return firstLine.find("SIMPLE") == 0;
    }
 
-   bool Util::isXmlFile(std::string filename) {
+   auto Util::isXmlFile(std::string filename) -> bool {
       std::vector<std::string> tokens;
       facilities::Util::stringTokenize(filename, ".", tokens);
       if (*(tokens.end()-1) == "xml") {
@@ -85,9 +85,9 @@ namespace genericSources {
       return false;
    }
 
-   double Util::interpolate(const std::vector<double> &x,
+   auto Util::interpolate(const std::vector<double> &x,
                             const std::vector<double> &y,
-                            double xx) {
+                            double xx) -> double {
       if (xx < x.front() || xx > x.back()) {
          std::ostringstream message;
          message << "Util::interpolate:\n"
@@ -110,9 +110,9 @@ namespace genericSources {
       return yy;
    }
 
-   double Util::bilinear(const std::vector<double> &xx, double x, 
+   auto Util::bilinear(const std::vector<double> &xx, double x, 
                          const std::vector<double> &yy, double y, 
-                         const std::vector<double> &z) {
+                         const std::vector<double> &z) -> double {
 
       std::vector<double>::const_iterator ix;
       if (x < *(xx.begin())) {
@@ -160,14 +160,14 @@ namespace genericSources {
       return value;
    }
 
-   bool Util::expectedException(const std::exception & eObj, 
-                                const std::string & targetMessage) {
+   auto Util::expectedException(const std::exception & eObj, 
+                                const std::string & targetMessage) -> bool {
       std::string message(eObj.what());
       return message.find_first_of(targetMessage.c_str()) 
          != std::string::npos;
    }
 
-   double Util::drawFromPowerLaw(double emin, double emax, double gamma) {
+   auto Util::drawFromPowerLaw(double emin, double emax, double gamma) -> double {
       double xi = CLHEP::RandFlat::shoot();
       double energy;
       if (gamma == 1) {
@@ -182,9 +182,9 @@ namespace genericSources {
       return energy;
    }
 
-   double Util::logInterpolate(const std::vector<double> & x,
+   auto Util::logInterpolate(const std::vector<double> & x,
                                const std::vector<double> & y,
-                               double xx) {
+                               double xx) -> double {
       std::vector<double>::const_iterator it 
          = std::upper_bound(x.begin(), x.end(), xx) - 1;
       int indx(it - x.begin());
@@ -200,7 +200,7 @@ namespace genericSources {
       return yy;
    }
 
-   double Util::powerLawIntegral(double x1, double x2, double y1, double y2) {
+   auto Util::powerLawIntegral(double x1, double x2, double y1, double y2) -> double {
       if (x1 <= 0 || x2 <= 0 || y1 <= 0 || y2 <= 0) {
          throw std::range_error("Util::powerLawIntegral"
                                 "Negative or zero argument passed.");

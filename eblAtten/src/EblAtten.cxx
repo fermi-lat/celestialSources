@@ -16,25 +16,25 @@ namespace IRB {
 
 std::map<EblModel, std::string> EblAtten::s_model_Ids;
 
-float calcKneiske(float energy, float redshift);
-float calcPrimack05(float energy, float redshift);
-float calcKneiske_HighUV(float energy, float redshift);
-float calcStecker05(float energy, float redshift);
-float calcFranceschini(float energy, float redshift);
-float calcFinke(float energy, float redshift);
-float calcStecker05_FE(float energy, float redshift);
-float calcSalamonStecker(float energy, float redshift);
-float calcGeneric(float energy, float redshift);
-float calcGilmore09(float energy, float redshift);
-float calcGilmore12_fixed(float energy, float redshift);
-float calcGilmore12_fiducial(float energy, float redshift);
-float calcInoue13(float energy, float redshift);
-float calcDominguez11(float energy, float redshift);
-float calcScully14_highOp(float energy, float redshift);
-float calcScully14_lowOp(float energy, float redshift);
-float calcKneiskeDole10(float energy, float redshift);
-float calcKneiskeDole10_CMB(float energy, float redshift);
-float calcHelgasonKashlinsky12(float energy, float redshift);
+auto calcKneiske(float energy, float redshift) -> float;
+auto calcPrimack05(float energy, float redshift) -> float;
+auto calcKneiske_HighUV(float energy, float redshift) -> float;
+auto calcStecker05(float energy, float redshift) -> float;
+auto calcFranceschini(float energy, float redshift) -> float;
+auto calcFinke(float energy, float redshift) -> float;
+auto calcStecker05_FE(float energy, float redshift) -> float;
+auto calcSalamonStecker(float energy, float redshift) -> float;
+auto calcGeneric(float energy, float redshift) -> float;
+auto calcGilmore09(float energy, float redshift) -> float;
+auto calcGilmore12_fixed(float energy, float redshift) -> float;
+auto calcGilmore12_fiducial(float energy, float redshift) -> float;
+auto calcInoue13(float energy, float redshift) -> float;
+auto calcDominguez11(float energy, float redshift) -> float;
+auto calcScully14_highOp(float energy, float redshift) -> float;
+auto calcScully14_lowOp(float energy, float redshift) -> float;
+auto calcKneiskeDole10(float energy, float redshift) -> float;
+auto calcKneiskeDole10_CMB(float energy, float redshift) -> float;
+auto calcHelgasonKashlinsky12(float energy, float redshift) -> float;
 
 EblAtten::EblAtten(EblModel model) : m_model(model) {
    if (s_model_Ids.size() == 0) {
@@ -71,7 +71,7 @@ EblAtten::EblAtten(EblModel model) : m_model(model) {
    }
 }
 
-float EblAtten::operator()(float energy, float redshift) const {
+auto EblAtten::operator()(float energy, float redshift) const -> float {
 // Convert energy from MeV to GeV:
    energy /= 1e3;
    switch (m_model) {

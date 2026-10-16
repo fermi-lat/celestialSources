@@ -24,7 +24,7 @@
 
 #include "Util.h"
 
-ISpectrumFactory & RadialSourceFactory() {
+auto RadialSourceFactory() -> ISpectrumFactory & {
    static SpectrumFactory<RadialSource> myFactory;
    return myFactory;
 }
@@ -50,28 +50,28 @@ RadialSource::RadialSource(const std::string & paramString)
    m_rotatedSrcVec = m_rot*srcDir.dir().unit();
 }
 
-float RadialSource::operator()(float xi) const {
+auto RadialSource::operator()(float xi) const -> float {
    return (*m_spectrum)(xi);
 }
 
-double RadialSource::flux(double time) const {
+auto RadialSource::flux(double time) const -> double {
    return m_spectrum->flux(time);
 }
 
-double RadialSource::solidAngle() const {
+auto RadialSource::solidAngle() const -> double {
    return 1;
 }
 
-double RadialSource::interval(double time) {
+auto RadialSource::interval(double time) -> double {
    return m_spectrum->interval(time);
 }
 
-double RadialSource::energy(double time) {
+auto RadialSource::energy(double time) -> double {
    (void)(time);
    return (*m_spectrum)(CLHEP::RandFlat::shoot());
 }
 
-std::pair<double, double> RadialSource::dir(double energy) {
+auto RadialSource::dir(double energy) -> std::pair<double, double> {
    (void)(energy);
 
    double phi(CLHEP::RandFlat::shoot()*2.*M_PI);
@@ -117,7 +117,7 @@ void RadialSource::fillRadialDist(const std::string & infile) {
    }
 }
 
-double RadialSource::drawOffsetAngle() const {
+auto RadialSource::drawOffsetAngle() const -> double {
    double xi(CLHEP::RandFlat::shoot()*m_radialDist.back());
    std::vector<double>::const_iterator it
       = std::upper_bound(m_radialDist.begin(), m_radialDist.end(), xi);

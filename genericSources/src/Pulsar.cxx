@@ -25,7 +25,7 @@
 
 #include "genericSources/Pulsar.h"
 
-ISpectrumFactory &PulsarFactory() {
+auto PulsarFactory() -> ISpectrumFactory & {
    static SpectrumFactory<Pulsar> myFactory;
    return myFactory;
 }
@@ -50,7 +50,7 @@ Pulsar::Pulsar(const std::string &paramString)
    computeIntegralDist(templateFile);
 }
 
-double Pulsar::interval(double current_time) {
+auto Pulsar::interval(double current_time) -> double {
    current_time -= Spectrum::startTime();
    double time = drawTime();
    double resid = residualTime(time + current_time);
@@ -100,7 +100,7 @@ void Pulsar::readLightCurve(const std::string & templateFile,
    }
 }
 
-double Pulsar::residualTime(double time) const {
+auto Pulsar::residualTime(double time) const -> double {
    double f0 = 1./m_period;
    double f1 = -m_pdot/m_period/m_period;
    double dt = time - m_t0;
@@ -114,11 +114,11 @@ double Pulsar::residualTime(double time) const {
    return time - tn;
 } 
 
-double Pulsar::period(double time) const {
+auto Pulsar::period(double time) const -> double {
    return m_period + m_pdot*(time - m_t0);
 }
 
-double Pulsar::drawTime() const {
+auto Pulsar::drawTime() const -> double {
    double xi = CLHEP::RandFlat::shoot();
    double time = -std::log(xi)/m_meanFlux/EventSource::totalArea();
    return time;

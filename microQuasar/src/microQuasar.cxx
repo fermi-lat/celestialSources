@@ -27,7 +27,7 @@
 #include "astro/PointingHistory.h"
 #include "CLHEP/Random/RandFlat.h"
 
-ISpectrumFactory &microQuasarFactory() { // a.k.a. microQuasarFactory, see http://www.bbc.co.uk/dna/h2g2/A105265
+auto microQuasarFactory() -> ISpectrumFactory & { // a.k.a. microQuasarFactory, see http://www.bbc.co.uk/dna/h2g2/A105265
 	static SpectrumFactory<microQuasar> myFactory;
 	return myFactory;
 }
@@ -156,7 +156,7 @@ microQuasar::microQuasar(const std::string &paramString)
 		<< m_eMax << " MeV." << std::endl;
 }
 
-std::vector<std::string> microQuasar::tokenize(std::string params, char token){
+auto microQuasar::tokenize(std::string params, char token) -> std::vector<std::string>{
 	std::vector<std::string> tokens;
 	while(params.length()!=0){
 		std::string::size_type pos = params.find(token,0);
@@ -175,7 +175,7 @@ std::vector<std::string> microQuasar::tokenize(std::string params, char token){
 	return tokens;
 }
 
-float microQuasar::operator()(float xi) const {
+auto microQuasar::operator()(float xi) const -> float {
 	float energy(1.);
 	if( m_spectrum[m_region]==0){
 		if ( m_currentSpectralIndex != -999.) {
@@ -192,7 +192,7 @@ float microQuasar::operator()(float xi) const {
 	return energy;
 }
 
-double microQuasar::energy(double time) {
+auto microQuasar::energy(double time) -> double {
 
 	m_region = m_orbitalRegion.findRegion(time,m_orbitalPeriod);
 	m_currentSpectralIndex = m_orbitalRegion.getSpectralIndex(m_region);
@@ -218,7 +218,7 @@ void microQuasar::modulation(const double x, double& funcValue, double& derivVal
 	return;
 }
 
-double microQuasar::interval(double current_time) {
+auto microQuasar::interval(double current_time) -> double {
 
 	m_currentTime = current_time;
 
@@ -279,19 +279,19 @@ double microQuasar::interval(double current_time) {
 	return dT;
 }
 
-bool microQuasar::inJet(double time) 
+auto microQuasar::inJet(double time) -> bool 
 {
 	std::vector<burstPairs>::iterator burstIter = std::find_if(m_bursts.begin(), m_bursts.end(), InBurst(time));
 	if (burstIter!= m_bursts.end()) return true;
 	return false;
 }
 
-std::vector<microQuasar::burstPairs>::iterator microQuasar::getJetStart(double time) 
+auto microQuasar::getJetStart(double time) -> std::vector<microQuasar::burstPairs>::iterator 
 {
 	std::vector<burstPairs>::iterator burstIter = std::find_if(m_bursts.begin(), m_bursts.end(), NextBurst(time));
 	return burstIter;
 }
-microQuasar::burstPairs microQuasar::calculateJetStart(double time) {
+auto microQuasar::calculateJetStart(double time) -> microQuasar::burstPairs {
 
 	double randJet = 0.5*(2.*m_randGenBurst.flat()-1.);
 	double jetOn = m_jetProperties.getJetOnCycle() * 
@@ -323,12 +323,12 @@ microQuasar::burstPairs microQuasar::calculateJetStart(double time) {
 	return burstPairs(jetStart,jetEnd);
 }
 
-int microQuasar::OrbitalRegion::findRegion(double time, float period) {
+auto microQuasar::OrbitalRegion::findRegion(double time, float period) -> int {
 	float timef = time;
 	float phase = fmod(timef,period)/period;
 	return (phase > m_minOrbitalPhase && phase < m_maxOrbitalPhase) ? 0 : 1;
 }
-double microQuasar::rtsafe(const double x1, const double x2,	const double xacc)
+auto microQuasar::rtsafe(const double x1, const double x2,	const double xacc) -> double
 {
 	const int MAXIT=100;
 	int j;

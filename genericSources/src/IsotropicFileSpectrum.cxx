@@ -24,7 +24,7 @@
 
 #include "celestialSources/ConstParMap.h"
 
-ISpectrumFactory & IsotropicFileSpectrumFactory() {
+auto IsotropicFileSpectrumFactory() -> ISpectrumFactory & {
    static SpectrumFactory<IsotropicFileSpectrum> myFactory;
    return myFactory;
 }
@@ -41,32 +41,32 @@ IsotropicFileSpectrum::IsotropicFileSpectrum(const std::string & paramString)
    }
 }
 
-float IsotropicFileSpectrum::operator()(float xi) const {
+auto IsotropicFileSpectrum::operator()(float xi) const -> float {
    return m_fileSpectrum->operator()(xi);
 }
 
-double IsotropicFileSpectrum::flux(double time) const {
+auto IsotropicFileSpectrum::flux(double time) const -> double {
    (void)(time);
    return m_fileSpectrum->flux();
 }
 
-double IsotropicFileSpectrum::solidAngle() const {
+auto IsotropicFileSpectrum::solidAngle() const -> double {
    return 1.;
 }
 
-double IsotropicFileSpectrum::interval(double time) {
+auto IsotropicFileSpectrum::interval(double time) -> double {
    double rate = flux(time)*EventSource::totalArea();
    double xi = CLHEP::RandFlat::shoot();
    return -log(1. - xi)/rate;
 }
 
-double IsotropicFileSpectrum::energy(double time) {
+auto IsotropicFileSpectrum::energy(double time) -> double {
    (void)(time);
    double xi = CLHEP::RandFlat::shoot();
    return (*this)(xi);
 }
 
-std::pair<double, double> IsotropicFileSpectrum::dir(double energy) {
+auto IsotropicFileSpectrum::dir(double energy) -> std::pair<double, double> {
    (void)(energy);
 
    double xi = CLHEP::RandFlat::shoot();

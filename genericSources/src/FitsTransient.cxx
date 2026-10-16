@@ -36,13 +36,13 @@
 #include "Util.h"
 
 namespace {
-   bool compareEventTime(const std::pair<double, double> & x,
-                         const std::pair<double, double> & y) {
+   auto compareEventTime(const std::pair<double, double> & x,
+                         const std::pair<double, double> & y) -> bool {
       return x.first < y.first;
    }
 }
 
-ISpectrumFactory & FitsTransientFactory() {
+auto FitsTransientFactory() -> ISpectrumFactory & {
    static SpectrumFactory<FitsTransient> myFactory;
    return myFactory;
 }
@@ -106,7 +106,7 @@ FitsTransient::~FitsTransient() {
    delete m_tau;
 }
 
-double FitsTransient::interval(double time) {
+auto FitsTransient::interval(double time) -> double {
    time -= Spectrum::startTime();
    if (!m_haveFirstEvent) {
       std::vector<std::pair<double, double> >::const_iterator event =
@@ -167,9 +167,9 @@ drawEvents(const std::vector<double> & times,
    }
 }
 
-std::pair<long, double> FitsTransient::
+auto FitsTransient::
 draw(const std::vector<double> & x,
-     const std::vector<double> & integralDist) const {
+     const std::vector<double> & integralDist) const -> std::pair<long, double> {
    double xi = CLHEP::RandFlat::shoot()*integralDist.back();
    std::vector<double>::const_iterator it = 
       std::upper_bound(integralDist.begin(), integralDist.end(), xi);

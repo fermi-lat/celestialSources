@@ -27,7 +27,7 @@
 #include "genericSources/Pulsar.h"
 #include "genericSources/TransientTemplate.h"
 
-ISpectrumFactory & TransientTemplateFactory() {
+auto TransientTemplateFactory() -> ISpectrumFactory & {
    static SpectrumFactory<TransientTemplate> myFactory;
    return myFactory;
 }
@@ -84,8 +84,8 @@ void TransientTemplate::createEventTimes(std::string templateFile) {
    std::stable_sort(m_eventTimes.begin(), m_eventTimes.end());
 }
 
-double TransientTemplate::drawTime(const std::vector<double> & tt,
-                                   const std::vector<double> & integralDist) {
+auto TransientTemplate::drawTime(const std::vector<double> & tt,
+                                   const std::vector<double> & integralDist) -> double {
    double xi = CLHEP::RandFlat::shoot();
    std::vector<double>::const_iterator it = 
       std::upper_bound(integralDist.begin(), integralDist.end(), xi);

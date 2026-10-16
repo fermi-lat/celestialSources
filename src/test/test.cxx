@@ -10,7 +10,7 @@
 
 #include "celestialSources/SpectrumFactoryLoader.h"
 
-int main() {
+auto main() -> int {
    
    SpectrumFactoryLoader loader;
 

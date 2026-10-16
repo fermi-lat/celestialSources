@@ -24,27 +24,27 @@ using namespace std;
 
 namespace IRB {
 
-float calcKneiske(float energy, float redshift);
-float calcPrimack05(float energy, float redshift);
-float calcKneiske_HighUV(float energy, float redshift);
-float calcStecker05(float energy, float redshift);
-float calcStecker05_FE(float energy, float redshift);
-float calcFranceschini(float energy, float redshift);
-float calcFinke(float energy, float redshift);
-float calcSalamonStecker(float energy, float redshift);
-float calcGeneric (float energy, float redshift);
-float calcGilmore09(float energy, float redshift);
-float calcGilmore12_fixed(float energy, float redshift);
-float calcGilmore12_fiducial(float energy, float redshift);
-float calcInoue13(float energy, float redshift);
-float calcDominguez11(float energy, float redshift);
-float calcScully14_highOp(float energy, float redshift);
-float calcScully14_lowOp(float energy, float redshift);
-float calcKneiskeDole10(float energy, float redshift);
-float calcKneiskeDole10_CMB(float energy, float redshift);
-float calcHelgasonKashlinsky12(float energy, float redshift);
+auto calcKneiske(float energy, float redshift) -> float;
+auto calcPrimack05(float energy, float redshift) -> float;
+auto calcKneiske_HighUV(float energy, float redshift) -> float;
+auto calcStecker05(float energy, float redshift) -> float;
+auto calcStecker05_FE(float energy, float redshift) -> float;
+auto calcFranceschini(float energy, float redshift) -> float;
+auto calcFinke(float energy, float redshift) -> float;
+auto calcSalamonStecker(float energy, float redshift) -> float;
+auto calcGeneric (float energy, float redshift) -> float;
+auto calcGilmore09(float energy, float redshift) -> float;
+auto calcGilmore12_fixed(float energy, float redshift) -> float;
+auto calcGilmore12_fiducial(float energy, float redshift) -> float;
+auto calcInoue13(float energy, float redshift) -> float;
+auto calcDominguez11(float energy, float redshift) -> float;
+auto calcScully14_highOp(float energy, float redshift) -> float;
+auto calcScully14_lowOp(float energy, float redshift) -> float;
+auto calcKneiskeDole10(float energy, float redshift) -> float;
+auto calcKneiskeDole10_CMB(float energy, float redshift) -> float;
+auto calcHelgasonKashlinsky12(float energy, float redshift) -> float;
 
-float calcHelgasonKashlinsky12(float energy, float redshift) {
+auto calcHelgasonKashlinsky12(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_HELGASONandKASHLINSKY_2012.dat");
@@ -54,7 +54,7 @@ float calcHelgasonKashlinsky12(float energy, float redshift) {
 }
 
 
-float calcKneiskeDole10_CMB(float energy, float redshift) {
+auto calcKneiskeDole10_CMB(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_KNEISKEandDOLE_2010.dat");
@@ -64,7 +64,7 @@ float calcKneiskeDole10_CMB(float energy, float redshift) {
 }
 
 
-float calcKneiskeDole10(float energy, float redshift) {
+auto calcKneiskeDole10(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_KNEISKEandDOLE_2010_noCMB.dat");
@@ -73,7 +73,7 @@ float calcKneiskeDole10(float energy, float redshift) {
    return kneiskedole10.value(energy, redshift);
 }
 
-float calcScully14_highOp(float energy, float redshift) {
+auto calcScully14_highOp(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_SCULLYetal2014_highOp.dat");
@@ -82,7 +82,7 @@ float calcScully14_highOp(float energy, float redshift) {
    return scully14_highOp.value(energy, redshift);
 }
 
-float calcScully14_lowOp(float energy, float redshift) {
+auto calcScully14_lowOp(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_SCULLYetal2014_lowOp.dat");
@@ -92,7 +92,7 @@ float calcScully14_lowOp(float energy, float redshift) {
 }
 
 
-float calcDominguez11(float energy, float redshift) {
+auto calcDominguez11(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_DOMINGUEZetal_2011.dat");
@@ -101,7 +101,7 @@ float calcDominguez11(float energy, float redshift) {
    return dominguez11.value(energy, redshift);
 }
 
-float calcInoue13(float energy, float redshift) {
+auto calcInoue13(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_INOUEetal_2013.dat");
@@ -110,7 +110,7 @@ float calcInoue13(float energy, float redshift) {
    return inoue13.value(energy, redshift);
 }
 
-float calcGilmore09(float energy, float redshift) {
+auto calcGilmore09(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_GILMOREetal_2009.dat");
@@ -119,7 +119,7 @@ float calcGilmore09(float energy, float redshift) {
    return gilmore09.value(energy, redshift);
 }
 
-float calcGilmore12_fixed(float energy, float redshift) {
+auto calcGilmore12_fixed(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file = 
       facilities::commonUtilities::joinPath(datadir, "opdep_fixed_Gilmore2012.dat");
@@ -129,7 +129,7 @@ float calcGilmore12_fixed(float energy, float redshift) {
    return gilmore_fixed.value(energy*1e3, redshift);
 }
 
-float calcGilmore12_fiducial(float energy, float redshift) {
+auto calcGilmore12_fiducial(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file = 
       facilities::commonUtilities::joinPath(datadir, "opdep_fiducial_Gilmore2012.dat");
@@ -139,7 +139,7 @@ float calcGilmore12_fiducial(float energy, float redshift) {
 }
 
 
-float calcSalamonStecker(float energy, float redshift) {
+auto calcSalamonStecker(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_SalamonStecker98.dat");
@@ -147,7 +147,7 @@ float calcSalamonStecker(float energy, float redshift) {
    return salamon_stecker.value(energy, redshift);
 }
 
-float calcFinke(float energy, float redshift) {
+auto calcFinke(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_Finke_2009.dat");
@@ -155,7 +155,7 @@ float calcFinke(float energy, float redshift) {
    return finke.value(energy, redshift);  
 }
 
-float calcFranceschini(float energy, float redshift) {
+auto calcFranceschini(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_Franceschini_2008.dat");
@@ -163,7 +163,7 @@ float calcFranceschini(float energy, float redshift) {
    return franceschini.value(energy, redshift);
 }
 
-float calcKneiske(float energy, float redshift) {
+auto calcKneiske(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_KNEISKEetal2004_bestfit.dat");
@@ -172,7 +172,7 @@ float calcKneiske(float energy, float redshift) {
 }
 
 
-float calcKneiske_HighUV(float energy, float redshift) {
+auto calcKneiske_HighUV(float energy, float redshift) -> float {
    static std::string datadir(facilities::commonUtilities::getDataPath("eblAtten"));
    static std::string od_file =
       facilities::commonUtilities::joinPath(datadir, "opdep_KNEISKEetal2004_highUV.dat");
@@ -181,12 +181,12 @@ float calcKneiske_HighUV(float energy, float redshift) {
 }
 
 
-float calcPrimack05(float energy, float redshift) {
+auto calcPrimack05(float energy, float redshift) -> float {
    return Primack05::instance().value(energy, redshift);
 }
 
 
-float calcGeneric (float energy, float redshift){
+auto calcGeneric (float energy, float redshift) -> float{
 
 //Parametric representation of tau(E,z) from Justin Finke
 
@@ -215,7 +215,7 @@ if (E < E_0)
 		   
 
 
-float calcStecker05(float energy, float redshift){
+auto calcStecker05(float energy, float redshift) -> float{
 //EBL model 3:  Stecker, Malkan, and Scully
 //              Astro-ph 0510449
 //		Valid for opacities  0.01 < tau < 100
@@ -287,7 +287,7 @@ return pow(10., tauvalue);
 }
 
 
-float calcStecker05_FE(float energy, float redshift){
+auto calcStecker05_FE(float energy, float redshift) -> float{
 //EBL model 3:  Stecker, Malkan, and Scully
 //              Astro-ph 0510449
 //		Valid for opacities  0.01 < tau < 100

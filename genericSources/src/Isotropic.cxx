@@ -26,7 +26,7 @@
 
 #include "genericSources/Isotropic.h"
 
-ISpectrumFactory & IsotropicFactory() {
+auto IsotropicFactory() -> ISpectrumFactory & {
    static SpectrumFactory<Isotropic> myFactory;
    return myFactory;
 }
@@ -64,7 +64,7 @@ Isotropic::Isotropic(const std::string & paramString)
    }
 }
 
-float Isotropic::operator()(float xi) const {
+auto Isotropic::operator()(float xi) const -> float {
    double one_m_gamma = 1. - m_gamma;
    double arg = xi*(pow(m_emax, one_m_gamma) - pow(m_emin, one_m_gamma)) 
       + pow(m_emin, one_m_gamma);
@@ -72,28 +72,28 @@ float Isotropic::operator()(float xi) const {
    return energy;
 }
 
-double Isotropic::flux(double time) const {
+auto Isotropic::flux(double time) const -> double {
    (void)(time);
    return m_flux;
 }
 
-double Isotropic::solidAngle() const {
+auto Isotropic::solidAngle() const -> double {
    return 1.;
 }
 
-double Isotropic::interval(double time) {
+auto Isotropic::interval(double time) -> double {
    double rate = flux(time)*EventSource::totalArea();
    double xi = CLHEP::RandFlat::shoot();
    return -log(1. - xi)/rate;
 }
 
-double Isotropic::energy(double time) {
+auto Isotropic::energy(double time) -> double {
    (void)(time);
    double xi = CLHEP::RandFlat::shoot();
    return (*this)(xi);
 }
 
-std::pair<double, double> Isotropic::dir(double energy) {
+auto Isotropic::dir(double energy) -> std::pair<double, double> {
    (void)(energy);
 
    double xi = CLHEP::RandFlat::shoot();

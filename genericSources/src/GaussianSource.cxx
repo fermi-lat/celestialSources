@@ -22,7 +22,7 @@
 
 #include "genericSources/GaussianSource.h"
 
-ISpectrumFactory &GaussianSourceFactory() {
+auto GaussianSourceFactory() -> ISpectrumFactory & {
    static SpectrumFactory<GaussianSource> myFactory;
    return myFactory;
 }
@@ -57,7 +57,7 @@ GaussianSource::GaussianSource(const std::string &paramString)
    m_rotatedSrcVec = m_rot*srcDir.dir().unit();
 }
 
-float GaussianSource::operator()(float xi) const {
+auto GaussianSource::operator()(float xi) const -> float {
    double one_m_gamma = 1. - m_gamma;
    double arg = xi*(pow(m_emax, one_m_gamma) - pow(m_emin, one_m_gamma)) 
       + pow(m_emin, one_m_gamma);
@@ -65,28 +65,28 @@ float GaussianSource::operator()(float xi) const {
    return energy;
 }
 
-double GaussianSource::flux(double time) const {
+auto GaussianSource::flux(double time) const -> double {
    (void)(time);
    return m_flux;
 }
 
-double GaussianSource::solidAngle() const {
+auto GaussianSource::solidAngle() const -> double {
    return 1;
 }
 
-double GaussianSource::interval(double time) {
+auto GaussianSource::interval(double time) -> double {
    double rate = flux(time)*EventSource::totalArea();
    double xi = CLHEP::RandFlat::shoot();
    return -log(1. - xi)/rate;
 }
 
-double GaussianSource::energy(double time) {
+auto GaussianSource::energy(double time) -> double {
    (void)(time);
    double xi = CLHEP::RandFlat::shoot();
    return (*this)(xi);
 }
 
-std::pair<double, double> GaussianSource::dir(double energy) {
+auto GaussianSource::dir(double energy) -> std::pair<double, double> {
    (void)(energy);
 
    double x = m_major*CLHEP::RandGauss::shoot();

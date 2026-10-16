@@ -31,7 +31,7 @@
 
 #include "celestialSources/ConstParMap.h"
 
-ISpectrumFactory & MapSourceFactory() {
+auto MapSourceFactory() -> ISpectrumFactory & {
    static SpectrumFactory<MapSource> myFactory;
    return myFactory;
 }
@@ -126,7 +126,7 @@ MapSource::MapSource(const std::string & paramString)
 //              << m_mapIntegral << std::endl;
 }
 
-float MapSource::operator()(float xi) const {
+auto MapSource::operator()(float xi) const -> float {
    double one_m_gamma = 1. - m_gamma;
    double arg = xi*(pow(m_emax, one_m_gamma) - pow(m_emin, one_m_gamma)) 
       + pow(m_emin, one_m_gamma);
@@ -134,28 +134,28 @@ float MapSource::operator()(float xi) const {
    return energy;
 }
 
-double MapSource::flux(double time) const {
+auto MapSource::flux(double time) const -> double {
    (void)(time);
    return m_flux;
 }
 
-double MapSource::solidAngle() const {
+auto MapSource::solidAngle() const -> double {
    return 1;
 }
 
-double MapSource::interval(double time) {
+auto MapSource::interval(double time) -> double {
    double rate = flux(time)*EventSource::totalArea();
    double xi = CLHEP::RandFlat::shoot();
    return -log(1. - xi)/rate;
 }
 
-double MapSource::energy(double time) {
+auto MapSource::energy(double time) -> double {
    (void)(time);
    double xi = CLHEP::RandFlat::shoot();
    return (*this)(xi);
 }
 
-std::pair<double, double> MapSource::dir(double energy) {
+auto MapSource::dir(double energy) -> std::pair<double, double> {
    (void)(energy);
 
    double xi = CLHEP::RandFlat::shoot();
@@ -204,7 +204,7 @@ samplePixel(unsigned int indx, double &lon, double &lat) const {
    lat = asin(arg)*180./M_PI;
 }
 
-double MapSource::mapValue(unsigned int i, unsigned int j) {
+auto MapSource::mapValue(unsigned int i, unsigned int j) -> double {
    unsigned int indx = j*m_lon.size() + i;
    return m_image[indx];
 }

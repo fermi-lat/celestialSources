@@ -30,26 +30,26 @@
 
 #include "TestUtil.h"
 
-ISpectrumFactory & FitsTransientFactory();
-ISpectrumFactory & GaussianSourceFactory();
-ISpectrumFactory & GaussianSpectrumFactory();
-ISpectrumFactory & GRBmanagerFactory();
-ISpectrumFactory & IsotropicFactory();
-ISpectrumFactory & IsotropicFileSpectrumFactory();
-ISpectrumFactory & MapCubeFactory();
-ISpectrumFactory & MapSourceFactory();
-ISpectrumFactory & PeriodicSourceFactory();
-ISpectrumFactory & PulsarFactory();
-ISpectrumFactory & SimpleTransientFactory();
-ISpectrumFactory & SourcePopulationFactory();
-ISpectrumFactory & TransientTemplateFactory();
+auto FitsTransientFactory() -> ISpectrumFactory &;
+auto GaussianSourceFactory() -> ISpectrumFactory &;
+auto GaussianSpectrumFactory() -> ISpectrumFactory &;
+auto GRBmanagerFactory() -> ISpectrumFactory &;
+auto IsotropicFactory() -> ISpectrumFactory &;
+auto IsotropicFileSpectrumFactory() -> ISpectrumFactory &;
+auto MapCubeFactory() -> ISpectrumFactory &;
+auto MapSourceFactory() -> ISpectrumFactory &;
+auto PeriodicSourceFactory() -> ISpectrumFactory &;
+auto PulsarFactory() -> ISpectrumFactory &;
+auto SimpleTransientFactory() -> ISpectrumFactory &;
+auto SourcePopulationFactory() -> ISpectrumFactory &;
+auto TransientTemplateFactory() -> ISpectrumFactory &;
 #ifndef BUILD_WITHOUT_ROOT
 ISpectrumFactory & TF1SpectrumFactory();
 ISpectrumFactory & TF1MapFactory();
 #endif
-ISpectrumFactory & FileSpectrumFactory();
-ISpectrumFactory & FileSpectrumMapFactory();
-ISpectrumFactory & RadialSourceFactory();
+auto FileSpectrumFactory() -> ISpectrumFactory &;
+auto FileSpectrumMapFactory() -> ISpectrumFactory &;
+auto RadialSourceFactory() -> ISpectrumFactory &;
 //ISpectrumFactory & EventListFactory();
 
 class TestApp {
@@ -77,7 +77,7 @@ public:
    void test_dgaus8() const;
 
    static void load_sources();
-   static CLHEP::HepRotation instrumentToCelestial(double time);
+   static auto instrumentToCelestial(double time) -> CLHEP::HepRotation;
 
 private:
 
@@ -87,7 +87,7 @@ private:
 
 };
 
-int main(int iargc, char * argv[]) {
+auto main(int iargc, char * argv[]) -> int {
 #ifdef TRAP_FPE
    feenableexcept (FE_INVALID|FE_DIVBYZERO|FE_OVERFLOW);
 #endif
@@ -235,7 +235,7 @@ void TestApp::load_sources() {
 //   EventListFactory();
 }
 
-CLHEP::HepRotation TestApp::instrumentToCelestial(double time) {
+auto TestApp::instrumentToCelestial(double time) -> CLHEP::HepRotation {
    astro::GPS *gps = astro::GPS::instance();
    gps->time(time);
 
@@ -247,7 +247,7 @@ class MyFunction {
 public:
    MyFunction(double norm, double index1, double index2, double ebreak)
       : m_norm(norm), m_index1(index1), m_index2(index2), m_ebreak(ebreak) {}
-   double operator()(double energy) const {
+   auto operator()(double energy) const -> double {
       if (energy < m_ebreak) {
          return m_norm*std::pow(energy, m_index1);
       }

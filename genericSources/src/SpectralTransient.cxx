@@ -33,7 +33,7 @@
 #include "genericSources/SpectralTransient.h"
 
 namespace {
-   double my_RandFlat_shoot() {
+   auto my_RandFlat_shoot() -> double {
       static double step(1./std::pow(2., 24));
       double xi = CLHEP::RandFlat::shoot() + CLHEP::RandFlat::shoot()*step;
       if (xi > 1) {
@@ -45,7 +45,7 @@ namespace {
 
 std::vector<double> SpectralTransient::ModelInterval::s_energies;
 
-ISpectrumFactory & SpectralTransientFactory() {
+auto SpectralTransientFactory() -> ISpectrumFactory & {
    static SpectrumFactory<SpectralTransient> myFactory;
    return myFactory;
 }
@@ -162,7 +162,7 @@ SpectralTransient::~SpectralTransient() {
    delete m_tau;
 }
 
-double SpectralTransient::interval(double time) {
+auto SpectralTransient::interval(double time) -> double {
    time -= Spectrum::startTime();
    if (m_eventCache.size() == 0) {
       fillEventCache(time);
@@ -365,7 +365,7 @@ void SpectralTransient::readSpectrum(std::string specFile) {
    }
 }
 
-double SpectralTransient::drawEnergy() const {
+auto SpectralTransient::drawEnergy() const -> double {
    double xi(CLHEP::RandFlat::shoot()*m_cumulativeDist.back());
    size_t k = std::upper_bound(m_cumulativeDist.begin(),
                                m_cumulativeDist.end(), xi) 
@@ -414,8 +414,8 @@ void SpectralTransient::rescaleLightCurve() {
    }
 }   
 
-double SpectralTransient::ModelInterval::
-drawEnergy(double emin, double emax) const {
+auto SpectralTransient::ModelInterval::
+drawEnergy(double emin, double emax) const -> double {
    double xi = CLHEP::RandFlat::shoot();
    double energy;
    if (s_energies.size() > 0) {
@@ -504,8 +504,8 @@ fillCumulativeDist(double emin, double emax) {
    }
 }
 
-double SpectralTransient::ModelInterval::
-logParabola(double energy) const {
+auto SpectralTransient::ModelInterval::
+logParabola(double energy) const -> double {
    double x = energy/ebreak;
    return std::pow(x, -(gamma1 + gamma2*std::log(x)));
 }
