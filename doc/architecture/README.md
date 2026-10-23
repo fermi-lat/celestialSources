@@ -219,7 +219,7 @@ None. `pySources/` (two old scripts) is not built or installed.
   **exists**; it computes `share/fermitools/data/genericSources/outref`
   but never compares against it, and no `genericSources` reference data
   exists anywhere. `fermitools-data` has `outrefFiles/GRBobs` and
-  `outrefFiles/GRBtemplate` (shipped in `fermitools-test-scripts-data`),
+  `outrefFiles/GRBtemplate` (installed by the `fermitools-data` package),
   but those sub-packages are not built and their tests and
   `check_test_GRB*_output` entries are commented out even in the ROOT list.
   See "Testing" in ScienceTools' `docs/architecture/README.md`.
