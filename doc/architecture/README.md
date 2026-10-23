@@ -212,6 +212,17 @@ None. `pySources/` (two old scripts) is not built or installed.
     a file that is not installed, so it is expected to stop there with an
     exception (from reading the code; not checked at runtime).
   - `test_microQuasar` runs the `mq.xml` source through `FluxMgr`.
+- **ST-unit-test:** the default run of ScienceTools'
+  `recipe/tests/ST-unit-test` (`unitTestsWithoutRoot`) runs all four test
+  programs and passes on their exit status. The only output check,
+  `check_test_genericSources_output`, verifies that `test_data.dat`
+  **exists**; it computes `share/fermitools/data/genericSources/outref`
+  but never compares against it, and no `genericSources` reference data
+  exists anywhere. `fermitools-data` has `outrefFiles/GRBobs` and
+  `outrefFiles/GRBtemplate` (shipped in `fermitools-test-scripts-data`),
+  but those sub-packages are not built and their tests and
+  `check_test_GRB*_output` entries are commented out even in the ROOT list.
+  See "Testing" in ScienceTools' `docs/architecture/README.md`.
 - **Legacy files:** `SConscript`, `*Lib.py`, `cmt/` directories,
   `azure-pipelines.yml`.
 
