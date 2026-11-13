@@ -30,7 +30,7 @@ auto RadialSourceFactory() -> ISpectrumFactory & {
 }
 
 RadialSource::RadialSource(const std::string & paramString) 
-   : m_spectrum(0) {
+   : m_spectrum(nullptr) {
 
    celestialSources::ConstParMap pars(paramString);
    
@@ -94,7 +94,7 @@ void RadialSource::fillRadialDist(const std::string & infile) {
 
    std::vector<double> dndth;
 
-   std::vector<std::string>::const_iterator line = lines.begin();
+   auto line = lines.begin();
    for ( ; line != lines.end(); ++line) {
       std::vector<std::string> tokens;
       facilities::Util::stringTokenize(*line, " \t", tokens);
@@ -119,7 +119,7 @@ void RadialSource::fillRadialDist(const std::string & infile) {
 
 auto RadialSource::drawOffsetAngle() const -> double {
    double xi(CLHEP::RandFlat::shoot()*m_radialDist.back());
-   std::vector<double>::const_iterator it
+   auto it
       = std::upper_bound(m_radialDist.begin(), m_radialDist.end(), xi);
    size_t indx = it - m_radialDist.begin() - 1;
    double theta = ( (xi - m_radialDist.at(indx))

@@ -52,7 +52,7 @@ auto SpectralTransientFactory() -> ISpectrumFactory & {
 
 SpectralTransient::SpectralTransient(const std::string & paramString) 
    : m_emin(20.), m_emax(2e5), m_lc(0), m_z(0), m_logParabola(0),
-     m_specFile(false), m_tau(0), m_tauScale(1), m_particle("gamma") {
+     m_specFile(false), m_tau(nullptr), m_tauScale(1), m_particle("gamma") {
    std::string templateFile;
    std::string spectrumFile("none");
    if (paramString.find("=") == std::string::npos) {
@@ -79,7 +79,7 @@ SpectralTransient::SpectralTransient(const std::string & paramString)
          m_logParabola = std::atoi(params[8].c_str());
       }
       if (params.size() > 9) {
-         IRB::EblModel eblModel = 
+         auto eblModel = 
             static_cast<IRB::EblModel>(std::atoi(params[9].c_str()));
          try {
             m_tau = new IRB::EblAtten(eblModel);
@@ -207,7 +207,7 @@ void SpectralTransient::fillEventCache(double time) {
             } else {
                energy = m_currentInterval->drawEnergy(m_emin, m_emax);
             }
-            if (m_z == 0 || m_tau == 0 || 
+            if (m_z == 0 || m_tau == nullptr || 
                 CLHEP::RandFlat::shoot() < std::exp(-m_tauScale*
                                                     (*m_tau)(energy, m_z))) {
 //               double eventTime(CLHEP::RandFlat::shoot()*dt + time);
@@ -265,7 +265,7 @@ readFitsLightCurve(const std::string & templateFile) {
    int hdu = genericSources::FitsImage::findHdu(templateFile, "TIMES");
 
    int status(0);
-   fitsfile * fptr = 0;
+   fitsfile * fptr = nullptr;
    fits_open_file(&fptr, templateFile.c_str(), READONLY, &status);
    genericSources::FitsImage::fitsReportError(status, routineName);
 

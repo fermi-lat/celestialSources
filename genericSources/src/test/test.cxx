@@ -55,7 +55,6 @@ auto RadialSourceFactory() -> ISpectrumFactory &;
 class TestApp {
 
 public:
-
    TestApp() : m_fluxMgr(0), m_count(2000), m_compositeSource(0) {}
 
    ~TestApp() throw() {
@@ -81,9 +80,9 @@ public:
 
 private:
 
-   FluxMgr * m_fluxMgr;
-   unsigned long m_count;
-   CompositeSource * m_compositeSource;
+   FluxMgr * m_fluxMgr{nullptr};
+   unsigned long m_count{2000};
+   CompositeSource * m_compositeSource{nullptr};
 
 };
 
@@ -170,9 +169,9 @@ void TestApp::setSources() {
 
    m_compositeSource = new CompositeSource();
    unsigned long nsrcs(0);
-   for (std::vector<std::string>::const_iterator name = sourceNames.begin();
+   for (auto name = sourceNames.begin();
         name != sourceNames.end(); ++name) {
-      EventSource * source(0);
+      EventSource * source(nullptr);
       if ((source = m_fluxMgr->source(*name))) {
          std::cerr << "adding source " << *name << std::endl;
          m_compositeSource->addSource(source);
@@ -190,7 +189,7 @@ void TestApp::setSources() {
 }
 
 void TestApp::createEvents(const std::string & filename) {
-   EventSource * newEvent(0);
+   EventSource * newEvent(nullptr);
    double currentTime(0);
    std::ofstream outputFile(filename.c_str());
    for (unsigned int i = 0; i < m_count; i++) {

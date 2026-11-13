@@ -193,7 +193,7 @@ auto calcGeneric (float energy, float redshift) -> float{
 
 double E_0 = 80./(1.+redshift);    //energy in units of GeV
 double E_1 = 450./(1.+redshift);
-double E = (double)energy;
+auto E = (double)energy;
 
 float tau;
 

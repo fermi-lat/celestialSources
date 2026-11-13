@@ -98,7 +98,7 @@ MapCube::MapCube(const std::string & paramString) : MapSource() {
 }
 
 void MapCube::checkForNonPositivePixels(const std::string & fitsFile) const {
-   std::vector<double>::const_iterator pixel = m_image.begin();
+   auto pixel = m_image.begin();
    for ( ; pixel != m_image.end(); ++pixel) {
       if (*pixel <= 0) {
          std::ostringstream message;
@@ -111,7 +111,7 @@ void MapCube::checkForNonPositivePixels(const std::string & fitsFile) const {
 }
 
 auto MapCube::operator()(float xi) const -> float {
-   std::vector<double>::const_iterator it 
+   auto it 
       = std::upper_bound(m_integralDist.begin(), m_integralDist.end(), xi);
    unsigned int indx = it - m_integralDist.begin();
 
@@ -146,7 +146,7 @@ void MapCube::readEnergyVector(const std::string & fitsFile) {
    int hdu = genericSources::FitsImage::findHdu(fitsFile, "ENERGIES");
    
    int status(0);
-   fitsfile * fptr = 0;
+   fitsfile * fptr = nullptr;
 
    fits_open_file(&fptr, fitsFile.c_str(), READONLY, &status);
    genericSources::FitsImage::fitsReportError(status, routineName);
@@ -200,7 +200,7 @@ auto MapCube::powerLawIntegral(double x1, double x2,
 auto MapCube::
 drawEnergy(const Spectrum_t & spectrum) const -> double {
    double xi = CLHEP::RandFlat::shoot()*spectrum.back().first;
-   Spectrum_t::const_iterator it 
+   auto it 
       = std::upper_bound(spectrum.begin(), spectrum.end(),
                          std::make_pair(xi, 0), cmpPair);
    int indx = it - spectrum.begin() - 1;

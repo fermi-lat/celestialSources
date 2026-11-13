@@ -45,8 +45,8 @@ microQuasar::microQuasar(const std::string &paramString)
 	float specOrbital1,specOrbital2=-1;
 	float phaseOrbital1,phaseOrbital2=-1;
 
-	m_spectrum[0] = 0;
-	m_spectrum[1] = 0;
+	m_spectrum[0] = nullptr;
+	m_spectrum[1] = nullptr;
 
 	// allow bursts to be off by default
 
@@ -57,7 +57,7 @@ microQuasar::microQuasar(const std::string &paramString)
 
 	std::vector<std::string> tokens = tokenize(paramString,',');
 
-	std::vector<std::string>::iterator curToken = tokens.begin();
+	auto curToken = tokens.begin();
 	while(curToken!=tokens.end()){
 		std::vector<std::string> token = tokenize(*curToken,'=');
 		std::transform(token[0].begin(),token[0].end(),token[0].begin(),(int(*)(int))toupper);
@@ -177,7 +177,7 @@ auto microQuasar::tokenize(std::string params, char token) -> std::vector<std::s
 
 auto microQuasar::operator()(float xi) const -> float {
 	float energy(1.);
-	if( m_spectrum[m_region]==0){
+	if( m_spectrum[m_region]==nullptr){
 		if ( m_currentSpectralIndex != -999.) {
 
 			double one_m_gamma = 1. - m_currentSpectralIndex;
@@ -260,7 +260,7 @@ auto microQuasar::interval(double current_time) -> double {
 		double nextTime = m_currentTime+deltaT;
 		if (inJet(nextTime)) break;
 
-		std::vector<burstPairs>::iterator jet = getJetStart(nextTime);
+		auto jet = getJetStart(nextTime);
 		if (jet != m_bursts.end())	m_currentTime = (*jet).getBurstPairs().first;
 		else {
 			deltaT = 1.E9;
@@ -281,14 +281,14 @@ auto microQuasar::interval(double current_time) -> double {
 
 auto microQuasar::inJet(double time) -> bool 
 {
-	std::vector<burstPairs>::iterator burstIter = std::find_if(m_bursts.begin(), m_bursts.end(), InBurst(time));
+	auto burstIter = std::find_if(m_bursts.begin(), m_bursts.end(), InBurst(time));
 	if (burstIter!= m_bursts.end()) return true;
 	return false;
 }
 
 auto microQuasar::getJetStart(double time) -> std::vector<microQuasar::burstPairs>::iterator 
 {
-	std::vector<burstPairs>::iterator burstIter = std::find_if(m_bursts.begin(), m_bursts.end(), NextBurst(time));
+	auto burstIter = std::find_if(m_bursts.begin(), m_bursts.end(), NextBurst(time));
 	return burstIter;
 }
 auto microQuasar::calculateJetStart(double time) -> microQuasar::burstPairs {

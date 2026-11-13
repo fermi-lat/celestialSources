@@ -87,7 +87,7 @@ void TransientTemplate::createEventTimes(std::string templateFile) {
 auto TransientTemplate::drawTime(const std::vector<double> & tt,
                                    const std::vector<double> & integralDist) -> double {
    double xi = CLHEP::RandFlat::shoot();
-   std::vector<double>::const_iterator it = 
+   auto it = 
       std::upper_bound(integralDist.begin(), integralDist.end(), xi);
    int indx = it - integralDist.begin() - 1;
 /// @bug Using iterators causes a crash if there are zero value entries

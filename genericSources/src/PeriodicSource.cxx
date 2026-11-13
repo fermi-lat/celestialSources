@@ -64,7 +64,7 @@ auto PeriodicSource::energy(double time) -> double {
 auto PeriodicSource::interval(double time) -> double {
    time -= Spectrum::startTime();
    double phase = fmod(time, m_period);
-   std::vector<double>::const_iterator it 
+   auto it 
       = std::upper_bound(m_arrTimes.begin(), m_arrTimes.end(),
                          phase) - 1;
    unsigned int imin = it - m_arrTimes.begin();
@@ -77,7 +77,7 @@ auto PeriodicSource::interval(double time) -> double {
                   [&](auto const& elem){ return elem - m_integralDist[imin]; }
                   );
    double xi = -log(CLHEP::RandFlat::shoot());
-   unsigned int turns = static_cast<unsigned int>(xi/newDist[npts-1]);
+   auto turns = static_cast<unsigned int>(xi/newDist[npts-1]);
    double resid = fmod(xi, newDist[npts-1]);
    double my_interval = interpolate(newDist, m_arrTimes, resid) 
       + turns*m_period;
@@ -87,7 +87,7 @@ auto PeriodicSource::interval(double time) -> double {
 auto PeriodicSource::interpolate(const std::vector<double> &x,
                                    const std::vector<double> &y,
                                    double xx) -> double {
-   std::vector<double>::const_iterator it 
+   auto it 
       = std::upper_bound(x.begin(), x.end(), xx) - 1;
    unsigned int indx = it - x.begin();
    double yy;
@@ -116,7 +116,7 @@ void PeriodicSource::computeIntegralDistribution() {
    m_integralDist.clear();
    m_integralDist.reserve(2*npts);
    m_integralDist.push_back(0);
-   std::vector<double>::const_iterator it = m_arrTimes.begin();
+   auto it = m_arrTimes.begin();
    for ( ; it != m_arrTimes.end(); it++) {
       m_integralDist.push_back(m_flux*EventSource::totalArea()
                                *(*it + m_amplitude/angularFreq

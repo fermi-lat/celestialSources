@@ -28,7 +28,7 @@ namespace {
 
 namespace IRB {
 
-Primack05 * Primack05::s_instance(0);
+Primack05 * Primack05::s_instance(nullptr);
 
 Primack05::Primack05() {
    float zvalue[17] = {0., 0.1, 0.25, 0.5, 1., 1.5, 2., 2.5, 3., 3.5, 
@@ -49,7 +49,7 @@ Primack05::Primack05() {
 }
 
 auto Primack05::instance() -> Primack05 & {
-   if (s_instance == 0) {
+   if (s_instance == nullptr) {
       s_instance = new Primack05();
    }
    return *s_instance;

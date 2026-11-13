@@ -92,7 +92,7 @@ void Pulsar::readLightCurve(const std::string & templateFile,
    std::vector<std::string> lines;
    genericSources::Util::readLines(templateFile, lines);
    std::vector<std::string> tokens;
-   for (std::vector<std::string>::iterator it = lines.begin();
+   for (auto it = lines.begin();
         it != lines.end(); it++) {
       facilities::Util::stringTokenize(*it, " \t", tokens);
 // Assume the second column contains the light curve.

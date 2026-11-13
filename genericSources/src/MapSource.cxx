@@ -159,7 +159,7 @@ auto MapSource::dir(double energy) -> std::pair<double, double> {
    (void)(energy);
 
    double xi = CLHEP::RandFlat::shoot();
-   std::vector<double>::const_iterator it 
+   auto it 
       = std::upper_bound(m_integralDist.begin(), m_integralDist.end(), xi);
    unsigned int indx = it - m_integralDist.begin();
 

@@ -60,7 +60,7 @@ auto SimpleTransient::operator()(float xi) const -> float {
 
 auto SimpleTransient::interval(double time) -> double {
    time -= Spectrum::startTime();
-   std::vector<double>::const_iterator eventTime =
+   auto eventTime =
       std::upper_bound(m_eventTimes.begin(), m_eventTimes.end(), time);
    if (eventTime != m_eventTimes.end()) {
       return *eventTime - time;

@@ -97,7 +97,7 @@ namespace genericSources {
                  << x.back() << ")";
          throw std::range_error(message.str());
       }
-      std::vector<double>::const_iterator it 
+      auto it 
          = std::upper_bound(x.begin(), x.end(), xx) - 1;
       unsigned int indx = it - x.begin();
       double yy;
@@ -185,7 +185,7 @@ namespace genericSources {
    auto Util::logInterpolate(const std::vector<double> & x,
                                const std::vector<double> & y,
                                double xx) -> double {
-      std::vector<double>::const_iterator it 
+      auto it 
          = std::upper_bound(x.begin(), x.end(), xx) - 1;
       int indx(it - x.begin());
       if (indx < 0) {

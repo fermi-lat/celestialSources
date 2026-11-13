@@ -66,7 +66,7 @@ namespace {
 
 }
 
-IRB::EblAtten * SourcePopulation::PointSource::s_tau(0);
+IRB::EblAtten * SourcePopulation::PointSource::s_tau(nullptr);
 
 auto SourcePopulationFactory() -> ISpectrumFactory & {
    static SpectrumFactory<SourcePopulation> myFactory;
@@ -74,7 +74,7 @@ auto SourcePopulationFactory() -> ISpectrumFactory & {
 }
 
 SourcePopulation::SourcePopulation(const std::string & params) 
-   : m_tau(0), m_idOffset(100000), m_l(0), m_b(0), m_name("") {
+   : m_tau(nullptr), m_idOffset(100000), m_l(0), m_b(0), m_name("") {
    if (params.find("=") == std::string::npos) {
       std::vector<std::string> pars;
       facilities::Util::stringTokenize(params, ",", pars);
@@ -105,7 +105,7 @@ SourcePopulation::~SourcePopulation() {
 }
 
 void SourcePopulation::setEblAtten(const std::string & ebl_par) {
-   IRB::EblModel eblModel =
+   auto eblModel =
       static_cast<IRB::EblModel>(std::atoi(ebl_par.c_str()));
    m_tau = new IRB::EblAtten(eblModel);
    PointSource::setEblAtten(m_tau);
@@ -123,7 +123,7 @@ void SourcePopulation::readSourceFile(std::string input_file) {
    m_cumulativeFlux.clear();
    m_cumulativeFlux.reserve(lines.size());
 
-   std::vector<std::string>::const_iterator line = lines.begin();
+   auto line = lines.begin();
    for ( ; line != lines.end(); ++line) {
       m_sources.push_back(PointSource(*line));
       if (line == lines.begin()) {
@@ -137,7 +137,7 @@ void SourcePopulation::readSourceFile(std::string input_file) {
 
 auto SourcePopulation::operator()(float xi) -> float {
    xi *= m_flux;
-   std::vector<double>::const_iterator it = 
+   auto it = 
       std::upper_bound(m_cumulativeFlux.begin(), m_cumulativeFlux.end(), xi);
    size_t indx = it - m_cumulativeFlux.begin();
    m_currentEnergy = m_sources.at(indx).energy();
@@ -258,7 +258,7 @@ PointSource::dnde(double energy) const -> double {
 auto SourcePopulation::
 PointSource::attenuation(double energy) const -> double {
    double atten(1.);
-   if (s_tau != 0) {
+   if (s_tau != nullptr) {
       atten = std::exp(-s_tau->operator()(energy, m_z));
    }
    return atten;

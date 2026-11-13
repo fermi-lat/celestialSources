@@ -171,7 +171,7 @@ void FitsImage::read_fits_image(std::string & filename,
                                 std::vector<AxisParams> & axes,
                                 std::vector<double> & image) {
    s_fitsRoutine = "read_fits_image";
-   fitsfile * fptr = 0;
+   fitsfile * fptr = nullptr;
    char *file = const_cast<char *>(filename.c_str());
    int status = 0;
 
@@ -288,7 +288,7 @@ auto FitsImage::findHdu(const std::string & filename,
    s_fitsRoutine = "findHdu";
    
    int status(0);
-   fitsfile * fptr = 0;
+   fitsfile * fptr = nullptr;
 
    fits_open_file(&fptr, filename.c_str(), READONLY, &status);
    fitsReportError(status);

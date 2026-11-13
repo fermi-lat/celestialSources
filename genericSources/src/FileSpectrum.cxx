@@ -121,7 +121,7 @@ auto FileSpectrum::read_file(const std::string & infile) -> double {
    m_energies.clear();
    m_dnde.clear();
 
-   std::vector<std::string>::const_iterator line = lines.begin();
+   auto line = lines.begin();
    for ( ; line != lines.end(); ++line) {
       std::vector<std::string> tokens;
       facilities::Util::stringTokenize(*line, " \t", tokens);

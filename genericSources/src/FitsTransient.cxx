@@ -48,7 +48,7 @@ auto FitsTransientFactory() -> ISpectrumFactory & {
 }
 
 FitsTransient::FitsTransient(const std::string & paramString) 
-   : m_z(0), m_tau(0), m_haveFirstEvent(false) {
+   : m_z(0), m_tau(nullptr), m_haveFirstEvent(false) {
    if (paramString.find("=") == std::string::npos) {
       std::vector<std::string> params;
       facilities::Util::stringTokenize(paramString, ", ", params);
@@ -61,7 +61,7 @@ FitsTransient::FitsTransient(const std::string & paramString)
          m_z = std::atof(params[4].c_str());
       }
       if (params.size() > 5) {
-         IRB::EblModel eblModel = 
+         auto eblModel = 
             static_cast<IRB::EblModel>(std::atoi(params[5].c_str()));
          try {
             m_tau = new IRB::EblAtten(eblModel);
@@ -109,7 +109,7 @@ FitsTransient::~FitsTransient() {
 auto FitsTransient::interval(double time) -> double {
    time -= Spectrum::startTime();
    if (!m_haveFirstEvent) {
-      std::vector<std::pair<double, double> >::const_iterator event =
+      auto event =
          std::upper_bound(m_events.begin(), m_events.end(), 
                           std::make_pair(time, 0), compareEventTime);
       m_nextEvent = event;
@@ -171,7 +171,7 @@ auto FitsTransient::
 draw(const std::vector<double> & x,
      const std::vector<double> & integralDist) const -> std::pair<long, double> {
    double xi = CLHEP::RandFlat::shoot()*integralDist.back();
-   std::vector<double>::const_iterator it = 
+   auto it = 
       std::upper_bound(integralDist.begin(), integralDist.end(), xi);
    long indx = it - integralDist.begin() - 1;
    double value = (x.at(indx+1) - x.at(indx))*(xi - integralDist.at(indx))/
